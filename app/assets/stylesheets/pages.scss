@@ -4,6 +4,175 @@
 
 // ==========================================================================
 //
-//  ++ xxx ++
+//  ++ index ++
 //
 // ==========================================================================
+
+// -- + desktop + -------------
+@include media($desktop) {
+  #main.index {
+    height: 100%;
+
+    #first_image {
+      @include display(flex);
+      @include justify-content(center);
+      @include align-items(center);
+
+      width: 100%;
+      height: 50%;
+    }
+    .divider {
+      @include display(flex);
+      @include justify-content(center);
+      @include align-items(center);
+
+      height: 100px;
+    }
+    #posts {
+
+      .row {
+        padding: 30px;
+
+        &:nth-child(odd) {
+          background: #222222;
+        }
+        &:nth-child(even) {
+          background: #363636;
+        }
+        .inner {
+          @include outer-container;
+          @include display(flex);
+          @include align-items(stretch);
+          
+          max-width: 1300px;
+      
+          .comment {
+            @include span-columns(6);
+            @include display(flex);
+            @include flex-direction(column);
+            @include justify-content(flex-end);
+
+            padding: 40px 16px 0;
+
+            .icon {
+              @include display(flex);
+              @include justify-content(center);
+
+              @include to_icon($icon_size);
+              margin: 0 auto;
+            }
+            .sentence {
+              padding-bottom: 30px;
+
+              p {
+                padding-top: 22px;
+                color: #fff;
+                font-size: 50px;
+                line-height: 145%;
+              }
+            }
+            .source {
+              border-top: 1px solid #bbb;
+              margin-top: auto;
+              padding-top: 20px;
+              text-align: center;
+
+              span {
+                color: #bbbbbb;
+                font-size: 14px;
+                word-wrap: break-word;
+              }
+            }
+          }
+          .image {
+            @include span-columns(6);
+            @include display(flex);
+            @include align-items(center);
+
+            img {
+              width: 100%;
+            }
+          }
+        } // .inner
+      } // .row
+    } // #posts
+    #company {
+      margin-top: 240px;
+
+      .top {
+        @include display(flex);
+        @include justify-content(space-between);
+
+        max-width: 1300px;
+        padding: 0 100px;
+
+        .left img {
+          @include transform(rotate(-6deg));
+        }
+        .right img {
+          @include transform(rotate(20deg));
+        }
+      }
+      .text {
+        padding-top: 90px;
+        text-align: center;
+
+        h2 {
+          font-size: 42px;
+        }
+        table {
+          margin: 0 auto;
+          padding-top: 80px;
+          font-size: 18px;
+          text-align: left;
+
+          td {
+            padding: 7px 16px 7px 0;
+            vertical-align: top;
+          }
+        }
+      }
+      .map {
+        margin-top: 70px;
+
+        iframe {
+          display: block;
+          width: 70%;
+          margin: 0 auto;
+        }
+      }
+    } // #company
+  } // #main.index
+  .to-top {
+    @include display(flex);
+    @include justify-content(flex-end);
+
+    margin-top: 120px;
+    padding: 0 2% 2% 0;
+  }
+  footer {
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+
+    background: #333;
+    height: 140px;
+
+    p {
+      color: #999;
+      font-size: 24px;
+    }
+  }
+} // desktop
+
+
+
+
+
+
+
+
+
+
+
+

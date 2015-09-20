@@ -14,5 +14,12 @@ $default_font: $jp_mincho;
 // -- + color + -------------
 
 // -- + size + -------------
+$icon_size: 80px;
 
 // -- + function + -------------
+@mixin to_icon($size) {
+  @include calc(border-radius, $size / 2);
+  background-position: center;
+  background-size: cover;
+  @include size($size);
+}
