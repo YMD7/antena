@@ -3,6 +3,9 @@
 // -- + import + -------------
 @import "variables.scss";
 
+// -- + include media snipet + -------------
+// @include media($mobile) {}
+
 // ==========================================================================
 //
 //  ++ general ++
@@ -48,10 +51,19 @@ h1, h2, h3, h4, h5 {
 //  ++ header ++
 //
 // ==========================================================================
-header {
-  border: 1px solid #222;
-  height: 90px;
-}
+
+// -- + desktop + -------------
+@include media($desktop) {
+  header {
+    @include display(flex);
+    @include flex-direction(row);
+    @include justify-content(space-between);
+
+    height: 90px;
+
+
+  }
+} // desktop
 
 
 
