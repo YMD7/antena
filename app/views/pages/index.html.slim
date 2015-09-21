@@ -1,6 +1,5 @@
 section#main.index
-  #first_image
-    = image_tag "tag_line.svg"
+  #first_image style='background-image:url("/assets/tag_line.svg");'
   .divider
     = image_tag "balls.svg"
   section#posts
@@ -11,10 +10,13 @@ section#main.index
           .sentence
             p
               | どこに提案すれば造らせてくれるでしょうか。
-          .source
+          .seed
             span
-              | 出典：http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
+              / span - 創造のタネ -
+              / br
+              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
         .image
+          span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
           = image_tag "posts/1.jpg"
     .row
       .inner
@@ -23,10 +25,13 @@ section#main.index
           .sentence
             p
               | 移動はどんどん便利になる。行きたくなる場所を創らねば。
-          .source
+          .seed
             span
-              | 出典：http://livedoor.blogimg.jp/laba_q/imgs/5/5/5549ac6b.jpg
+              / span - 創造のタネ -
+              / br
+              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
         .image
+          span http://livedoor.blogimg.jp/laba_q/imgs/5/5/5549ac6b.jpg
           = image_tag "posts/2.jpg"
     .row
       .inner
@@ -35,10 +40,13 @@ section#main.index
           .sentence
             p
               | なにかを掴む感触と人の気持ちを掴む感覚が似ているのは興味ぶかい。
-          .source
+          .seed
             span
-              | 出典：http://img.gamespark.jp/imgs/zoom/77453.jpg
+              / span - 創造のタネ -
+              / br
+              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
         .image
+          span http://img.gamespark.jp/imgs/zoom/77453.jpg
           = image_tag "posts/3.jpg"
     .row
       .inner
@@ -47,10 +55,13 @@ section#main.index
           .sentence
             p
               | これができるなら、地上のどの空間にも応用できそうです。
-          .source
+          .seed
             span
-              | 出典：http://www.lifehacker.jp/assets_c/2014/11/141113cpi-thumb-640x352-81227.jpg
+              / span - 創造のタネ -
+              / br
+              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
         .image
+          span http://www.lifehacker.jp/assets_c/2014/11/141113cpi-thumb-640x352-81227.jpg
           = image_tag "posts/4.jpg"
   .divider
     = image_tag "balls.svg"
@@ -70,10 +81,18 @@ section#main.index
           td 株式会社アンテナ　Antena Inc.
         tr
           td 所在地
-          td 〒160-0004　東京都新宿区四谷2-12-5 第6富澤ビル 【受付：5階】
+          td
+            | 〒160-0004
+            br
+            | 東京都新宿区四谷2-12-5
+            br
+            | 第6富澤ビル【受付：5階】
         tr
           td 連絡先
-          td TEL：03-5919-3383（代表）　FAX：03-5919-3384
+          td
+            | TEL：03-5919-3383（代表）
+            br
+            | FAX：03-5919-3384
         tr
           td 代表取締役
           td 田端　知明
@@ -105,14 +124,20 @@ section#main.index
           td 株式会社PULS-A
         tr
           td 所属団体
-          td 公益社団法人全国宅地建物取引業協会連合会
+          td
+            | 公益社団法人
+            br
+            | 全国宅地建物取引業協会連合会
         tr
           td 登録免許
-          td 宅地建物取引業　東京都知事(1)第93973号
+          td
+            | 宅地建物取引業
+            br
+            | 東京都知事(1)第93973号
     .map
       iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5561155905534!2d139.724328!3d35.6879303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cf2d61df249%3A0x14a5a42a90a1f16d!2z44CSMTYwLTAwMDQg5p2x5Lqs6YO95paw5a6_5Yy65Zub6LC377yS5LiB55uu77yR77yS4oiS77yV!5e0!3m2!1sja!2sjp!4v1442773881018" frameborder="0" style="border:0" allowfullscreen
   .to-top
     a href="#"
       = image_tag "to_top.png"
   footer
-    p © 2015 Antena, Inc.
+    p © 2015 Antena Inc.

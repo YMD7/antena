@@ -8,89 +8,210 @@
 //
 // ==========================================================================
 
+// -- + common + -------------
+#main.index {
+  height: 100%;
+
+  #first_image {
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+  }
+  .divider {
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+  }
+  #posts {
+    .row {
+      &:nth-child(odd) {
+        background: #222222;
+      }
+      &:nth-child(even) {
+        background: #363636;
+      }
+      .inner {
+        @include outer-container;
+        @include display(flex);
+        @include align-items(stretch);
+        
+        .comment {
+          @include flex-direction(column);
+          @include justify-content(flex-end);
+
+          .icon {
+            @include display(flex);
+            @include justify-content(center);
+
+            @include to_icon($icon_size);
+            margin: 0 auto;
+          }
+          .sentence {
+            p {
+              color: #fff;
+            }
+          }
+          .seed {
+            border-top: 1px solid #aaa;
+            margin-top: auto;
+            font-family: $jp_gothic;
+            text-align: center;
+
+            span {
+              color: #bbb;
+              word-wrap: break-word;
+
+              span {
+                color: #666;
+              }
+            }
+          }
+        }
+        .image {
+          @include display(flex);
+          @include flex-direction(column);
+          @include align-items(center);
+          @include justify-content(center);
+
+          position: relative;
+
+          span {
+            position: absolute;
+            bottom: 0;
+            display: block;
+            background: rgba(34,34,34,0.2);
+            width: 100%;
+            color: #eee;
+            font-family: $verdana;
+            text-align: center;
+            text-shadow: 0 0 1px #999;
+            word-wrap: break-word;
+          }
+          img {
+            width: 100%;
+          }
+        }
+      } // .inner
+    } // .row
+  } // #posts
+  #company {
+    .top {
+      @include display(flex);
+      @include justify-content(space-between);
+
+      margin: 0 auto;
+      
+      .left img {
+        @include transform(rotate(-6deg));
+      }
+      .right img {
+        @include transform(rotate(20deg));
+      }
+    }
+    .text {
+      text-align: center;
+
+      table {
+        margin: 0 auto;
+        text-align: left;
+        border-collapse: separate;
+      
+        td {
+          vertical-align: top;
+          
+          &:first-child {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+    .map {
+      iframe {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  } // #company
+} // #main.index
+.to-top {
+  @include display(flex);
+  @include justify-content(flex-end);
+
+  a {
+    display: block;
+    cursor: pointer;
+  }
+}
+footer {
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
+
+  background: #333;
+  
+  p {
+    color: #999;
+  }
+}
+// common
+
 // -- + desktop + -------------
 @include media($desktop) {
   #main.index {
-    height: 100%;
-
     #first_image {
-      @include display(flex);
-      @include justify-content(center);
-      @include align-items(center);
-
-      width: 100%;
+      background-size: 65%;
       height: 50%;
     }
     .divider {
-      @include display(flex);
-      @include justify-content(center);
-      @include align-items(center);
-
       height: 100px;
     }
     #posts {
-
       .row {
         padding: 30px;
 
-        &:nth-child(odd) {
-          background: #222222;
-        }
-        &:nth-child(even) {
-          background: #363636;
-        }
         .inner {
-          @include outer-container;
-          @include display(flex);
-          @include align-items(stretch);
-          
           max-width: 1300px;
       
           .comment {
             @include span-columns(6);
             @include display(flex);
-            @include flex-direction(column);
-            @include justify-content(flex-end);
-
+            
             padding: 40px 16px 0;
 
-            .icon {
-              @include display(flex);
-              @include justify-content(center);
-
-              @include to_icon($icon_size);
-              margin: 0 auto;
-            }
             .sentence {
               padding-bottom: 30px;
 
               p {
                 padding-top: 22px;
-                color: #fff;
                 font-size: 50px;
                 line-height: 145%;
               }
             }
-            .source {
-              border-top: 1px solid #bbb;
-              margin-top: auto;
-              padding-top: 20px;
-              text-align: center;
-
+            .seed {
+              margin-bottom: 2px;
+              padding-top: 8px;
+              line-height: 120%;
+              
               span {
-                color: #bbbbbb;
+                height: 15px;
                 font-size: 14px;
-                word-wrap: break-word;
+
+                span {
+                  font-size: 13px;
+                }
               }
             }
           }
           .image {
             @include span-columns(6);
-            @include display(flex);
-            @include align-items(center);
 
-            img {
-              width: 100%;
+            span {
+              padding: 3px 0;
+              font-size: 10px;
             }
           }
         } // .inner
@@ -100,68 +221,46 @@
       margin-top: 240px;
 
       .top {
-        @include display(flex);
-        @include justify-content(space-between);
-
         max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 100px;
+        padding: 0 140px;
 
         .left img {
-          @include transform(rotate(-6deg));
+          @include transform(scale(0.85) rotate(-6deg));
+          padding-top: 10px;
         }
         .right img {
-          @include transform(rotate(20deg));
+          @include transform(scale(0.85) rotate(20deg));
+          padding-top: 10px;
         }
       }
       .text {
-        padding-top: 90px;
-        text-align: center;
+        padding-top: 80px;
 
         h2 {
           font-size: 42px;
         }
         table {
-          margin: 0 auto;
-          padding-top: 80px;
+          padding-top: 50px;
           font-size: 18px;
-          text-align: left;
-
-          td {
-            padding: 7px 16px 7px 0;
-            vertical-align: top;
-          }
+          line-height: 120%;
+          border-spacing: 10px 6px;
         }
       }
       .map {
         margin-top: 70px;
 
         iframe {
-          display: block;
           width: 60%;
           height: 550px;
-          margin: 0 auto;
         }
       }
     } // #company
   } // #main.index
   .to-top {
-    @include display(flex);
-    @include justify-content(flex-end);
-
     margin-top: 120px;
     padding: 0 2% 2% 0;
-
-    a {
-      display: block;
-      cursor: pointer;
-    }
   }
   footer {
-    @include display(flex);
-    @include justify-content(center);
-    @include align-items(center);
-
     background: #333;
     height: 140px;
 
@@ -170,7 +269,117 @@
       font-size: 24px;
     }
   }
-} // desktop
+}
+// desktop
+
+// -- + mobile + -------------
+@include media($mobile) {
+  #main.index {
+    #first_image {
+      background-size: 92%;
+      height: 65%;
+    }
+    .divider {
+      height: 10%;
+    }
+    #posts {
+      .row {
+        padding: 0;
+
+        .inner {
+          @include flex-direction(column);
+
+          .comment {
+            @include span-columns(12);
+            
+            padding: 80px 4%;
+
+            .icon {
+              @include to_icon($icon_size * 0.85);
+            }
+            .sentence {
+              padding-bottom: 20px;
+
+              p {
+                padding-top: 30px;
+                font-size: 38px;
+                line-height: 140%;
+              }
+            }
+            .seed {
+              padding-top: 14px;
+              
+              span {
+                height: 15px;
+                margin-bottom: 4px;
+                font-size: 10px;
+              }
+            }
+          }
+          .image {
+            @include span-columns(12);
+
+            span {
+              padding: 1px 0 0;
+              font-size: 10px;
+            }
+          }
+        } // .inner
+      } // .row
+    } // #posts
+    #company {
+      margin-top: 100px;
+
+      .top {
+        padding: 0 4%;
+
+        .left img {
+          @include transform(scale(0.7) rotate(-6deg));
+          padding-top: 10px;
+        }
+        .right img {
+          @include transform(scale(0.7) rotate(20deg));
+          padding-top: 10px;
+        }
+      }
+      .text {
+        padding-top: 50px;
+
+        h2 {
+          font-size: 28px;
+          letter-spacing: 3px;
+        }
+        table {
+          padding: 30px 2% 0;
+          font-size: 14px;
+          border-spacing: 10px 6px;
+        }
+      }
+      .map {
+        margin-top: 70px;
+
+        iframe {
+          width: 90%;
+          height: 280px;
+        }
+      }
+    } // #company
+  } // #main.index
+  .to-top {
+    margin-top: 120px;
+    padding: 0 2% 2% 0;
+  }
+  footer {
+    background: #333;
+    height: 140px;
+
+    p {
+      color: #999;
+      font-size: 24px;
+    }
+  }
+}
+// mobile
 
 
 
