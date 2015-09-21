@@ -104,6 +104,7 @@
         @include justify-content(space-between);
 
         max-width: 1300px;
+        margin: 0 auto;
         padding: 0 100px;
 
         .left img {
@@ -137,7 +138,8 @@
 
         iframe {
           display: block;
-          width: 70%;
+          width: 60%;
+          height: 550px;
           margin: 0 auto;
         }
       }
@@ -149,6 +151,11 @@
 
     margin-top: 120px;
     padding: 0 2% 2% 0;
+
+    a {
+      display: block;
+      cursor: pointer;
+    }
   }
   footer {
     @include display(flex);

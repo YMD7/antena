@@ -13,7 +13,8 @@ html
       #menu
         = image_tag "menu.svg"
       #logo
-        = image_tag "text_logo.svg"
+        = link_to root_url
+          = image_tag "text_logo.svg"
       #projects
         = image_tag "projects.png"
     == yield
