@@ -62,10 +62,11 @@
             font-family: $jp_gothic;
             text-align: center;
 
-            span {
+            > span {
+              display: block;
+              overflow: hidden;
               color: #bbb;
-              word-wrap: break-word;
-
+              
               span {
                 color: #666;
               }
@@ -198,9 +199,10 @@ footer {
               padding-top: 8px;
               line-height: 120%;
               
-              span {
-                height: 15px;
+              > span {
+                height: 44px;
                 font-size: 14px;
+                line-height: 22px;
 
                 span {
                   font-size: 13px;
@@ -309,12 +311,12 @@ footer {
               }
             }
             .seed {
-              padding-top: 14px;
+              padding-top: 12px;
               
-              span {
-                height: 15px;
-                margin-bottom: 4px;
+              > span {
+                height: 40px;
                 font-size: 10px;
+                line-height: 18px;
               }
             }
           }
