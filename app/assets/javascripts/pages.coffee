@@ -9,7 +9,7 @@ $ ->
   #                     + lazy load +
   # --------------------------------
   $('img.lazy').lazyload({
-    threshold: 100, # 200pxの距離まで近づいたら表示する
+    threshold: 200,
     effect: "fadeIn",
     effect_speed: "slow"
   })
