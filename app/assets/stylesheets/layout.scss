@@ -66,6 +66,10 @@ header {
 
     width: 100%;
     margin: 0 auto;
+
+    #menu, #projects {
+      width: 50px;
+    }
   }
 }
 // common
@@ -80,10 +84,6 @@ header {
       width: 100%;
       max-width: $desktop_max_width;
       padding-top: 10px;
-
-      #menu, #projects {
-        width: 50px;
-      }
     }
   }
 }
@@ -96,9 +96,20 @@ header {
 
     .inner {
       padding: 4px 0 0;
-      
-      #menu, #projects {
-        width: 50px;
+
+      #menu {
+        padding-top: 10px;
+      }
+      #logo {
+        padding-top: 8px;
+      }
+      #projects {
+        text-align: right;
+
+        img {
+          width: 40px;
+          height: 60px;
+        }
       }
     }
   }
