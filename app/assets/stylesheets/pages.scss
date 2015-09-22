@@ -212,6 +212,7 @@ footer {
           }
           .image {
             @include span-columns(6);
+            @include display(flex);
 
             span {
               padding: 3px 0;
@@ -292,11 +293,12 @@ footer {
 
         .inner {
           @include flex-direction(column);
-
+          @include justify-content(center);
+          
           .comment {
             @include span-columns(12);
             
-            padding: 80px 4%;
+            padding: 80px 4% 0;
 
             .icon {
               @include to_icon($icon_size * 0.85);
@@ -306,7 +308,8 @@ footer {
 
               p {
                 padding-top: 30px;
-                font-size: 38px;
+                font-size: 36px;
+                text-align: justify;
                 line-height: 140%;
               }
             }
@@ -322,6 +325,9 @@ footer {
           }
           .image {
             @include span-columns(12);
+            @include display(flex);
+
+            padding: 30px 4%;
 
             span {
               padding: 1px 0 0;
