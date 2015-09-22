@@ -20,7 +20,6 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    max-width: 1300px;
     margin: 0 auto;
   }
   .divider {
@@ -166,6 +165,7 @@ footer {
   #main.index {
     #first_image {
       background-size: 65%;
+      max-width: $desktop_max_width;
       height: 50%;
     }
     .divider {
@@ -176,7 +176,7 @@ footer {
         padding: 30px;
 
         .inner {
-          max-width: 1300px;
+          max-width: $desktop_max_width;
       
           .comment {
             @include span-columns(6);
@@ -223,7 +223,7 @@ footer {
       margin-top: 240px;
 
       .top {
-        max-width: 1300px;
+        max-width: $desktop_max_width;
         padding: 0 140px;
 
         .left img {
