@@ -76,14 +76,11 @@
         .image {
           @include display(flex);
           @include flex-direction(column);
-          @include align-items(center);
           @include justify-content(center);
 
           position: relative;
 
           span {
-            position: absolute;
-            bottom: 0;
             display: block;
             background: rgba(34,34,34,0.2);
             width: 100%;
@@ -215,6 +212,8 @@ footer {
             @include display(flex);
 
             span {
+              position: absolute;
+              bottom: 0;
               padding: 3px 0;
               font-size: 10px;
             }
@@ -330,8 +329,11 @@ footer {
             padding: 30px 4%;
 
             span {
-              padding: 1px 0 0;
+              position: relative;
+              padding: 4px 1%;
+              color: #555;
               font-size: 10px;
+              text-shadow: none;
             }
           }
         } // .inner
