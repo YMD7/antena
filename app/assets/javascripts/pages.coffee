@@ -6,6 +6,17 @@ $ ->
   # ==========================================================================
 
   # --------------------------------
+  #                     + home link +
+  # --------------------------------
+  $('#logo').on 'click', ->
+    location = document.location
+    if location.href is location.origin
+      window.location.reload()
+    else
+      window.location.href = location.origin
+
+
+  # --------------------------------
   #                     + side menu +
   # --------------------------------
   slide = (e, offset, margin) ->
@@ -35,9 +46,6 @@ $ ->
       margin = 30
     slide $(this), offset, margin
   
-    
-
-
 
 
   # ==========================================================================
