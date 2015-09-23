@@ -22,7 +22,7 @@
     width: 100%;
     margin: 0 auto;
   }
-  .divider {
+  .loader {
     @include display(flex);
     @include justify-content(center);
     @include align-items(center);
@@ -180,7 +180,7 @@ footer {
       height: 50%;
       min-height: 500px;
     }
-    .divider {
+    .loader {
       height: 100px;
     }
     #posts {
@@ -297,7 +297,7 @@ footer {
       background-size: 92%;
       height: 65%;
     }
-    .divider {
+    .loader {
       height: 10%;
     }
     #posts {
