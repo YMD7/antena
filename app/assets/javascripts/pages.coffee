@@ -1,6 +1,47 @@
 $ ->
   # ==========================================================================
   #
+  #  ++ common ++
+  #
+  # ==========================================================================
+
+  # --------------------------------
+  #                     + side menu +
+  # --------------------------------
+  slide = (e, offset, margin) ->
+    state = e.attr('class')
+    sideMenu = $('#side_menu')
+    if state is 'close'
+      sideMenu.animate({
+        left: 0,
+        marginLeft: margin
+      }, 200)
+      e.removeClass('close')
+      e.addClass('open')
+    else
+      sideMenu.animate({
+        left: offset,
+        marginLeft: 0
+      }, 500)
+      e.removeClass('open')
+      e.addClass('close')
+
+  offset = $('#side_menu').css('left')
+  $('#menu').on 'click', ->
+    margin = $('#first_image').css('marginLeft').replace('px', '')
+    if window.navigator.userAgent.toLowerCase().indexOf("mobile") isnt -1
+      margin = 0
+    else if margin < 30
+      margin = 30
+    slide $(this), offset, margin
+  
+    
+
+
+
+
+  # ==========================================================================
+  #
   #  ++ pages ++
   #
   # ==========================================================================
@@ -21,7 +62,6 @@ $ ->
     rows = $('#posts').children('.hidden')
     c = rows.length
     if c > 0
-      console.log c
       i = 0
       rows.each ->
         $(this).fadeIn(1300).removeClass('hidden')
@@ -37,4 +77,3 @@ $ ->
         $('footer')
       ]
         hidden.removeClass('hidden')
-      console.log 'end'
