@@ -15,6 +15,23 @@ $ ->
     else
       window.location.href = location.origin
 
+  # --------------------------------
+  #                     + side menu icon +
+  # --------------------------------
+  rotateMenuIcon = ->
+    state = $('#menu').attr('class')
+    if state is 'close'
+      $('#menu svg').animate({
+        transform: 'rotate(180deg) translate(0,-14px)'
+      }, 200)
+    else
+      $('#menu svg').animate({
+        transform: 'rotate(0deg) translate(0)'
+      }, 200)
+
+  $('#menu').on 'click', ->
+    if window.navigator.userAgent.toLowerCase().indexOf("mobile") isnt -1
+      rotateMenuIcon()
 
   # --------------------------------
   #                     + side menu +

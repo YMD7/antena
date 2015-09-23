@@ -130,6 +130,28 @@ header {
       width: 100%;
       max-width: $desktop_max_width;
       padding-top: 10px;
+
+      #menu {
+        cursor: pointer;
+        margin-top: -10px;
+        > svg {
+          > g > g {
+            @include transition(transform 0.2s ease-in-out);
+          }
+        }
+        &:hover {
+          > svg {
+            > g {
+              > g:nth-child(1) {
+                @include transform(rotate(115deg) translate(-22px, -30px));
+              }
+              > g:nth-child(2) {
+                @include transform(rotate(75deg) translate(-9px, -25px));
+              }
+            }
+          }
+        }
+      }
     }
     #side_menu {
       left: -500px;
@@ -157,7 +179,7 @@ header {
       padding: 4px 0 0;
 
       #menu {
-        padding-top: 10px;
+        margin: -6px 0 0 -8px;
       }
       #logo {
         padding-top: 8px;
@@ -166,8 +188,8 @@ header {
         text-align: right;
 
         img {
-          width: 40px;
-          height: 60px;
+          width: 33px;
+          height: 49px;
         }
       }
     }

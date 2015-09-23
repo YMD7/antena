@@ -30,16 +30,7 @@
     @include align-items(center);
 
     img {
-      @keyframes slide {
-        from {
-          @include transform(rotate(0deg));
-        }
-
-        to {
-          @include transform(rotate(360deg));
-        }
-      }
-      @include animation(slide 2.0s ease infinite);
+      @include animation(loading 2.0s ease infinite);
     }
   }
   #posts {

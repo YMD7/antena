@@ -17,6 +17,19 @@ $default_font: $jp_mincho;
 $icon_size: 80px;
 $desktop_max_width: 1300px;
 
+// -- + animation + -------------
+//
+// rotating balls
+//
+@keyframes loading {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
 // -- + function + -------------
 @mixin to_icon($size) {
   @include calc(border-radius, $size / 2);
