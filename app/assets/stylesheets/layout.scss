@@ -173,14 +173,18 @@ header {
     }
     #side_menu {
       left: -110%;
-      width: 100%;
-      height: 300px;
-      margin: 0 auto;
+      width: 96%;
+      height: 290px;
+      margin: 0 2%;
 
       .inner {
         margin-top: -3%;
         font-size: 14px;
 
+        h2 {
+          width: 100%;
+          text-align: center;
+        }
         table {
           margin-top: 16px;
         }

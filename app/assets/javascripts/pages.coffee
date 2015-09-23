@@ -30,7 +30,7 @@ $ ->
   $('#menu').on 'click', ->
     margin = $('#first_image').css('marginLeft').replace('px', '')
     if window.navigator.userAgent.toLowerCase().indexOf("mobile") isnt -1
-      margin = 0
+      margin = '2%'
     else if margin < 30
       margin = 30
     slide $(this), offset, margin
