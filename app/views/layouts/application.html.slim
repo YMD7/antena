@@ -14,8 +14,10 @@ html
         #menu.close
           = render partial: "menu_icon"
         #logo
+          = image_tag "antena-kun.png", :class => 'left'
           = link_to root_url
             = image_tag "text_logo.svg"
+          = image_tag "antena-kun.png", :class => 'right'
         #projects
           = image_tag "projects.png"
       nav#side_menu
