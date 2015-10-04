@@ -66,7 +66,7 @@ header {
 
     width: 100%;
     margin: 0 auto;
-
+    
     #menu, #projects {
       background: #fff;
       width: 50px;
@@ -155,6 +155,8 @@ header {
         }
       }
       #logo {
+        width: 128px;
+
         > img {
           opacity: 0;
           position: absolute;
@@ -178,7 +180,7 @@ header {
           }
         }
         a {
-          padding: 10% 15%;
+          margin: 0 auto;
         }
       }
     }
@@ -211,6 +213,7 @@ header {
         margin: -6px 0 0 -8px;
       }
       #logo {
+        width: 128px;
         padding-top: 8px;
 
         > img {
