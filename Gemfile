@@ -21,7 +21,9 @@ group :development do
     gem 'spring'
 end
 
-
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'unicorn'
 gem 'devise'
 gem 'slim-rails'
