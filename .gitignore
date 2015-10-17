@@ -68,6 +68,7 @@ build/
 
 ### https://raw.github.com/github/gitignore/23aad6abc4ed1aafb425f6e09334c4e35ad146ac/Rails.gitignore
 
+.env
 *.rbc
 capybara-*.html
 .rspec
