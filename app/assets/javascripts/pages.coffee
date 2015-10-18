@@ -1,4 +1,4 @@
-$ ->
+ready = ->
   # ==========================================================================
   #
   #  ++ common ++
@@ -37,6 +37,7 @@ $ ->
   #                     + side menu +
   # --------------------------------
   slide = (e, offset, margin) ->
+    console.log 'click'
     state = e.attr('class')
     sideMenu = $('#side_menu')
     if state is 'close'
@@ -56,7 +57,14 @@ $ ->
 
   offset = $('#side_menu').css('left')
   $('#menu').on 'click', ->
-    margin = $('#first_image').css('marginLeft').replace('px', '')
+    windowSize      = $(window).width()
+    desktopMaxWidth = 1300
+
+    if windowSize > desktopMaxWidth
+      margin = (windowSize - desktopMaxWidth) / 2
+    else
+      margin = 0
+    # margin = $('#first_image').css('marginLeft').replace('px', '')
     if window.navigator.userAgent.toLowerCase().indexOf("mobile") isnt -1
       margin = '2%'
     else if margin < 30
@@ -102,3 +110,6 @@ $ ->
         $('footer')
       ]
         hidden.removeClass('hidden')
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

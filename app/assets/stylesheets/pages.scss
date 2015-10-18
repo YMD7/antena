@@ -412,6 +412,66 @@ footer {
 
 
 
+// ==========================================================================
+//
+//  ++ login gate ++
+//
+// ==========================================================================
+
+// -- + common + -------------
+#gate {
+  width: 55%;
+  margin: 0 auto;
+
+  .login {
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
+
+    border: 1px solid #ddd;
+    border-radius: 500px;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    @include transition(all 0.2s linear);
+
+    &:hover {
+      border-color: #3a5795;
+    }
+    a {
+      display: block;
+      border: 1px solid #3a5795;
+      padding: 2% 4%;
+      font-family: $lucida-grande;
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+// -- + desktop + -------------
+@include media($desktop) {
+  #gate {
+    margin-top: 10%;
+
+    .login {
+      h2 {
+        margin-bottom: 50px;
+        font-size: 32px;
+      }
+    }
+  }
+}
+
+// -- + mobile + -------------
+@include media($mobile) {
+  #gate {
+  }
+}
+
 
 
 

@@ -30,6 +30,7 @@ gem 'devise'
 gem 'slim-rails'
 gem 'bourbon'
 gem 'neat'
+gem "font-awesome-rails"
 group :development do
   gem 'html2slim'
 end

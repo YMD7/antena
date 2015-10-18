@@ -1,0 +1,9 @@
+#gate
+  - if user_signed_in?
+    span "yes"
+  - else
+    .login
+      h2 ログイン
+      = link_to user_omniauth_authorize_path(:facebook) do
+        = fa_icon "facebook-official"
+        span Login with Facebook
