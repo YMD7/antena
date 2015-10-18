@@ -38,6 +38,6 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
-  gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'pry-remote' # bundle exec pry-remote
 end
