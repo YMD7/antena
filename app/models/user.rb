@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:facebook]
 
   def self.from_omniauth(auth)
-    binding.remote_pry
+    # binding.remote_pry
+
   end
 end
