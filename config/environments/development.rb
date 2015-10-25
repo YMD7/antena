@@ -40,5 +40,18 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # devise
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'dev.ofutari.us' }
+
+  # mail setting
+  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port => 587,
+    :address => "dev.ofutari.us",
+    :user_name => "mailer",
+    :password => "utopia#0409",
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
