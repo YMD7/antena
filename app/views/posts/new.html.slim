@@ -1,0 +1,46 @@
+section#main.posts_new
+  == render 'admin/contents_nav'
+  section#contents_field
+    h2
+      span.anc 投稿 - 
+      span.current 新規作成
+    .local-menu
+      ul
+        li
+          a
+            = fa_icon "plus-square"
+            | ほげ
+    #draft_contents
+      .row
+        .inner
+          .comment
+            .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+            .sentence
+              = form_tag '#' do
+                = text_area_tag 'post[paragraph]', "テキストを入力"
+            .seed
+              span
+                span - 創造のタネ -
+                br
+                = form_tag '#' do
+                  = text_field_tag 'post[seed]', "URLを入力"
+                  = submit_tag '設定'
+          .image style='background-image:url("/assets/placeholder-image.png");'
+            ul.tab
+              li.tab-header-and-content
+                a href='#' class="tab-link is-active" 画像を引用
+                .tab-content
+                  = form_tag '#' do
+                    = text_field_tag 'post[image_src]', "URLを入力"
+                    = submit_tag '設定'
+              li.tab-header-and-content
+                a href='#' class="tab-link" 画像をアップロード
+                .tab-content
+                  = form_tag '#' do
+                    .file-btn
+                      = fa_icon "upload"
+                      span ファイルをアップロード
+                      = text_field_tag 'file[name]'
+                      = file_field_tag 'post[image]'
+                    = text_field_tag 'post[image_src]', "URLを入力"
+                    = submit_tag '設定'

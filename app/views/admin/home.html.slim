@@ -1,15 +1,11 @@
 section#main.home
-  nav#contents_nav
-    ul
-      li 投稿
-      li メンバー
-      li データ
+  == render 'contents_nav'
   section#contents_field
     h2 投稿
     .local-menu
       ul
         li
-          a
+          = link_to admin_posts_new_path
             = fa_icon "plus-square"
             | 新規作成
     #posts

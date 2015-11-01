@@ -30,6 +30,14 @@ ul, li {
   margin: 0;
   padding: 0;
 }
+input {
+  @include appearance(none);
+  @include user-select(none);
+  outline: none;
+}
+a, input[type="submit"] {
+  cursor: pointer;
+}
 
 
 // --------------------------------
