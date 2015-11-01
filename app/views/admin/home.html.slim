@@ -1,1 +1,66 @@
-p test
+section#main.home
+  nav#contents_nav
+    ul
+      li 投稿
+      li メンバー
+      li データ
+  section#contents_field
+    h2 投稿
+    .local-menu
+      ul
+        li
+          a
+            = fa_icon "plus-square"
+            | 新規作成
+    #posts
+      .the-post
+        .article
+          .info
+            .author
+              .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+              span.name 尾崎 渉 (Wataru Ozaki)
+              span.date 2015/10/31 13:03
+          .container
+            .text
+              p
+                | どこに提案すれば造らせてくれるでしょうか。
+            .image
+              img src="/assets/posts/1.jpg"
+        .tools
+          a.edit
+            = fa_icon "pencil-square-o"
+            span 編集する
+      .the-post
+        .article
+          .info
+            .author
+              .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
+              span.name 山田 響 (Kyo Yamada)
+              span.date 2015/10/31 13:03
+          .container
+            .text
+              p
+                | 移動はどんどん便利になる。行きたくなる場所を創らねば。
+            .image
+              img src="/assets/posts/2.jpg"
+        .tools
+          a.edit
+            = fa_icon "pencil-square-o"
+            span 編集する
+      .the-post
+        .article
+          .info
+            .author
+              .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
+              span.name 川上 洋平 (Yohei Kawakami)
+              span.date 2015/10/31 13:03
+          .container
+            .text
+              p
+                | なにかを掴む感触と人の気持ちを掴む感覚が似ているのは興味ぶかい。
+            .image
+              img src="/assets/posts/3.jpg"
+        .tools
+          a.edit
+            = fa_icon "pencil-square-o"
+            span 編集する

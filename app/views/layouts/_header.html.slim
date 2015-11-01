@@ -1,39 +1,42 @@
 header
   .inner
     #menu.close
-      = render "layouts/menu_icon"
+      - if controller.controller_name === 'pages'
+        = render "layouts/menu_icon"
     #logo
       = image_tag "antena-kun.png", :class => 'left'
       = link_to root_url
         = image_tag "text_logo.svg"
       = image_tag "antena-kun.png", :class => 'right'
     #projects
-      = image_tag "projects.svg"
-  nav#side_menu
-    .inner
-      h2 アクセス
-      table
-        tr
-          td 会社名
-          td 株式会社アンテナ　Antena Inc.
-        tr
-          td 所在地
-          td
-            | 〒160-0004
-            br
-            | 東京都新宿区四谷2-12-5
-            br
-            | 第6富澤ビル【受付：5階】
-            br
-            a href="https://goo.gl/maps/fdHT5MuQFY12" target="_blank" Google Map
-        tr
-          td 連絡先
-          td
-            | TEL：03-5919-3383（代表）
-            br
-            | FAX：03-5919-3384
-    #sign_in
-      = link_to "-", gate_url
+      - if controller.controller_name === 'pages'
+        = image_tag "projects.svg"
+  - if controller.controller_name === 'pages'
+    nav#side_menu
+      .inner
+        h2 アクセス
+        table
+          tr
+            td 会社名
+            td 株式会社アンテナ　Antena Inc.
+          tr
+            td 所在地
+            td
+              | 〒160-0004
+              br
+              | 東京都新宿区四谷2-12-5
+              br
+              | 第6富澤ビル【受付：5階】
+              br
+              a href="https://goo.gl/maps/fdHT5MuQFY12" target="_blank" Google Map
+          tr
+            td 連絡先
+            td
+              | TEL：03-5919-3383（代表）
+              br
+              | FAX：03-5919-3384
+      #sign_in
+        = link_to "-", gate_url
 .flash
   p.notice
     = notice

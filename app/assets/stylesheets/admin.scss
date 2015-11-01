@@ -1,3 +1,307 @@
-// Place all the styles related to the admin controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "utf-8";
+
+// admin.scss
+
+// ==========================================================================
+//
+//  ++ general ++
+//
+// ==========================================================================
+
+// --------------------------------
+//                     + header +
+// --------------------------------
+body.admin {
+  background: #222;
+// -- + common + -------------
+header {
+  #logo {
+    img {
+      @include filter(invert(90%));
+    }
+  }
+}
+// common
+
+// -- + desktop + -------------
+@include media($desktop) {
+  header {
+    .inner {
+      height: 100px;
+    }
+  }
+}
+// desktop
+
+// -- + mobile + -------------
+@include media($mobile) {
+}
+// mobile
+}
+// body.admin
+
+
+
+// ==========================================================================
+//
+//  ++ home ++
+//
+// ==========================================================================
+
+body.admin {
+
+// -- + common + -------------
+#main {
+  font-family: $jp_gothic;
+  color: #ddd;
+
+  h2, p, a {
+    font-family: $jp_gothic;
+  }
+}
+// common
+
+// -- + desktop + -------------
+@include media($desktop) {
+  #main {
+    @include display(flex);
+    @include justify-content(flex-start);
+    @include align-items(flex-start);
+    @include flex-direction(row);
+
+    height: 100%;
+    padding-top: 30px;
+
+    #contents_nav {
+      @include flex(1);
+
+      background: #2d2d2d;
+
+      ul {
+        li {
+          border-left: 4px solid #222;
+          padding: 0.9em 1.4em;
+          font-size: 13px;
+
+          &:hover {
+            border-left: 4px solid #000;
+            background: #333;
+          }
+        }
+      }
+    }
+    #contents_field {
+      @include flex(5);
+      
+      background: #eee;
+      height: 100%;
+      padding: 20px;
+
+      h2 {
+        padding: 0 0 20px;
+        font-size: 28px;
+      }
+      .local-menu {
+        border-top:    3px solid #aaa;
+        border-bottom: 1px solid #eee;
+        background: #fff;
+        padding: 8px 10px;
+
+        ul li a {
+          @include display(flex);
+          @include justify-content(center);
+          @include align-items(flex-start);
+          @include flex-direction(row);
+
+          cursor: pointer;
+          border-bottom: 2px solid #00c0ef;
+          border-radius: 4px;
+          background: #00c0ef;
+          width: 8%;
+          min-width: 86px;
+          padding: 10px 12px 8px;
+          color: #eee;
+          font-size: 11px;
+
+          &:hover {
+            border-bottom: 2px solid #00667f;
+          }
+          i {
+            margin: -1px 6px 0 -2px;
+            font-size: 14px;
+          }
+        }
+      }
+      #posts {
+        background: #fff;
+        box-shadow: 0 1px 1px #ddd;
+        padding: 20px 10px;
+
+        .the-post {
+          @include display(flex);
+          @include justify-content(flex-start);
+          @include align-items(stretch);
+          @include flex-direction(row);
+
+          border-left: 4px solid #f0f0f0;
+          margin-bottom: 20px;
+
+          &:hover {
+            border-left: 4px solid #ccc;
+          }
+          .article {
+            @include flex(9);
+
+            @include display(flex);
+            @include justify-content(flex-start);
+            @include align-items(stretch);
+            @include flex-direction(row);
+
+            background: #333;
+
+            .info {
+              @include flex(1);
+
+              @include display(flex);
+              @include justify-content(center);
+              @include align-items(center);
+              @include flex-direction(column);
+
+              background: #f0f0f0;
+              font-size: 10px;
+
+              .author {
+                @include flex(1);
+
+                @include display(flex);
+                @include justify-content(center);
+                @include align-items(center);
+                @include flex-direction(column);
+
+                .icon {
+                  @include to_icon($icon_size * 0.70);
+                }
+                span {
+                  &.name {
+                    padding-top: 4px;
+                    color: #333;
+                    font-size: 12px;
+                  }
+                  &.date {
+                    padding-top: 4px;
+                    color: #aaa;
+                    font-size: 11px; 
+                  }
+                }
+              }
+            }
+            .container {
+              @include flex(4);
+
+              @include display(flex);
+              @include justify-content(flex-start);
+              @include align-items(stretch);
+              @include flex-direction(row);
+
+              .image {
+                @include flex(1);
+
+                @include display(flex);
+                @include justify-content(center);
+                @include align-items(center);
+
+                background: #393939;
+                padding: 10px;
+
+                img {
+                  max-height: 100px;
+                }
+              }
+              .text {
+                @include flex(3);
+
+                @include display(flex);
+                @include justify-content(flex-start);
+                @include align-items(center);
+                @include flex-direction(row);
+
+                p {
+                  padding: 10px 20px;
+                  color: #eee;
+                  font-family: $jp_mincho;
+                  font-size: 20px;
+                  line-height: 140%;
+                  letter-spacing: 0.5px;
+                }
+              }
+            }
+          }
+          .tools {
+            @include flex(1);
+
+            @include display(flex);
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-direction(column);
+
+            background: #4d4d4d;
+            padding: 10px 0;
+            text-align: center;
+
+            a {
+              @include display(flex);
+              @include justify-content(center);
+              @include align-items(center);
+              @include flex-direction(row);
+
+              cursor: pointer;
+              border-radius: 2px;
+              background: #f0f0f0;
+              width: 80%;
+              padding: 3px 0;
+              color: #666;
+              font-size: 10px;
+              text-align: center;
+              
+              &:hover {
+                color: #00c0ef;
+              }
+              i {
+                margin: 2px 4px 0 0;
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// desktop
+
+// -- + mobile + -------------
+@include media($mobile) {
+}
+// mobile
+}
+// body.admin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
