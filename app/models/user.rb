@@ -3,10 +3,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :invitable,
-         :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:facebook]
+         :lockable, :timeoutable, :omniauthable, omniauth_providers: [:facebook]
 
   def self.from_omniauth(auth)
-    # binding.remote_pry
+    provider = auth.provider
+    uid      = auth.uid
 
+    User.where(provider: provider, uid: uid).first
   end
 end

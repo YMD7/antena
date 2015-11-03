@@ -1,6 +1,9 @@
 #gate
   - if user_signed_in?
-    span "yes"
+    .logout
+      h2 メンバーメニュー
+      = link_to '管理サイト', admin_path
+      = link_to 'ログアウト', destroy_user_session_path, method: :delete
   - else
     .login
       h2 ログイン

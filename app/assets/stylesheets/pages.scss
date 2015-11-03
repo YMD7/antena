@@ -422,7 +422,7 @@ footer {
   width: 55%;
   margin: 0 auto;
 
-  .login {
+  .login, .logout {
     @include display(flex);
     @include flex-direction(column);
     @include justify-content(center);
@@ -441,6 +441,7 @@ footer {
     a {
       display: block;
       border: 1px solid #3a5795;
+      margin-bottom: 6px;
       padding: 2% 4%;
       font-family: $lucida-grande;
 
@@ -456,7 +457,7 @@ footer {
   #gate {
     margin-top: 10%;
 
-    .login {
+    .login, .logout {
       h2 {
         margin-bottom: 50px;
         font-size: 32px;
