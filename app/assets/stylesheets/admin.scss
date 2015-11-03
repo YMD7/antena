@@ -8,11 +8,17 @@
 //
 // ==========================================================================
 
+body.admin {
+  @include display(flex);
+  @include justify-content(flex-start);
+  @include align-items(stretch);
+  @include flex-direction(column);
+
+  background: #222;
+
 // --------------------------------
 //                     + header +
 // --------------------------------
-body.admin {
-  background: #222;
 
 // -- + common + -------------
 header {
@@ -41,6 +47,29 @@ header {
 
 
 // --------------------------------
+//                     + contents area +
+// --------------------------------
+// -- + common + -------------
+// common
+// -- + desktop + -------------
+@include media($desktop) {
+  #main {
+    @include flex(1);
+
+    @include display(flex);
+    @include justify-content(flex-start);
+    @include align-items(stretch);
+    @include flex-direction(row);
+  }
+}
+// desktop
+// -- + mobile + -------------
+@include media($mobile) {
+}
+// mobile
+
+
+// --------------------------------
 //                     + contents_nav +
 // --------------------------------
 // -- + common + -------------
@@ -51,9 +80,9 @@ header {
     #contents_nav {
       @include flex(1);
 
-      background: #2d2d2d;
-
       ul {
+        background: #2d2d2d;
+
         li {
           border-left: 4px solid #222;
 
@@ -74,7 +103,6 @@ header {
       @include flex(5);
       
       background: #eee;
-      height: 100%;
       padding: 20px;
 
       h2 {
@@ -129,12 +157,11 @@ body.admin {
 // -- + desktop + -------------
 @include media($desktop) {
   #main {
-    @include display(flex);
-    @include justify-content(flex-start);
-    @include align-items(flex-start);
-    @include flex-direction(row);
+    // @include display(flex);
+    // @include justify-content(flex-start);
+    // @include align-items(flex-start);
+    // @include flex-direction(row);
 
-    height: 100%;
     padding-top: 30px;
 
     #contents_field {
@@ -405,6 +432,7 @@ body.admin {
         @include flex-direction(column);
         @include justify-content(center);
 
+        background-position: center center;
         position: relative;
 
         span {
