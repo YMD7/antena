@@ -41,20 +41,34 @@ a, input[type="submit"] {
 
 
 // --------------------------------
+//                     + flash +
+// --------------------------------
+.flash {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+
+  .notice {
+    position: relative;
+    border-bottom: 3px solid #244e87;
+    background: #e5edf8;
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    color: #244e87;
+    font-family: $jp_gothic;
+    font-size: 14px;
+    line-height: 130%;
+  }
+}
+
+
+// --------------------------------
 //                     + global class +
 // --------------------------------
 .hidden {
   display: none !important;
 }
-
-
-// --------------------------------
-//                     + bourbon +
-// --------------------------------
-
-// -- + neat + -------------
-
-// -- + refills + -------------
 
 
 
@@ -183,6 +197,15 @@ header {
           }
         }
         &:hover {
+          // antena-kun dash
+          @keyframes dash_to_left {
+            0%   { left: 38%; opacity: 1.0; }
+            100% { left: -20%; opacity: 0.1; }
+          }
+          @keyframes dash_to_right {
+            0%   { right: 38%; opacity: 1.0; }
+            100% { right: -20%; opacity: 0.1; }
+          }
           > img.left {
             @include animation(dash_to_left 1.5s $ease-in-out-circ);
           }

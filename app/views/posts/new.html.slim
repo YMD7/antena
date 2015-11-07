@@ -12,35 +12,62 @@ section#main.posts-new
             | ほげ
     #draft_contents
       .row
-        .inner
-          .comment
-            .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
-            .sentence
-              = form_tag '#' do
-                = text_area_tag 'post[paragraph]', "テキストを入力"
-            .seed
-              span
-                span - 創造のタネ -
-                br
-                = form_tag '#' do
-                  = text_field_tag 'post[seed]', "URLを入力"
-                  = submit_tag '設定'
-          .image style='background-image:url("/assets/placeholder-image.png");'
-            ul.tab
-              li.tab-header-and-content
-                a href='#' class="tab-link is-active" 画像を引用
-                .tab-content
-                  = form_tag '#' do
-                    = text_field_tag 'post[image_src]', "URLを入力"
-                    = submit_tag '設定'
-              li.tab-header-and-content
-                a href='#' class="tab-link" 画像をアップロード
-                .tab-content
-                  = form_tag '#' do
-                    .file-btn
-                      = fa_icon "upload"
-                      span ファイルをアップロード
-                      = text_field_tag 'file[name]'
-                      = file_field_tag 'post[image]'
-                    = text_field_tag 'post[image_src]', "URLを入力"
-                    = submit_tag '設定'
+        = form_for @post do |f|
+          - @post.user_id = @current_user_id
+          = hidden_field :post, :user_id
+          .inner
+            .comment
+              .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+              .sentence
+                = f.text_area :comment, :value => "テキストのを入力"
+              .seed
+                span
+                  span - 創造のタネ -
+                  br
+                  = f.text_field :seed_title, :value => "URLを入力"
+                  = link_to '設定', '#', :id => 'seed_url', :class => 'btn unset'
+            .image
+              = image_tag 'placeholder-image.png'
+              .sticker
+                = link_to 'upload', '#', :class => 'tab upload'
+                .form-parts.link
+                  = f.text_field :image_src, :value => 'URLを入力'
+                .form-parts.upload
+                  span hogehogehogehogeho
+          .controls.local-menu
+            ul
+              li
+                a
+                  - 30.times do
+                    = image_tag 'antena-kun.png'
+                  = fa_icon "rocket"
+                  | 投稿
+      .row
+        = form_for @post do |f|
+          - @post.user_id = @current_user_id
+          = hidden_field :post, :user_id
+          .inner
+            .comment
+              .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+              .sentence
+                = f.text_area :comment, :value => "テキストのを入力"
+              .seed
+                span
+                  span - 創造のタネ -
+                  br
+                  = f.text_field :seed_title, :value => "URLを入力"
+                  = link_to '設定', '#', :id => 'seed_url', :class => 'btn unset'
+            .image
+              = image_tag 'placeholder-image.png'
+              .sticker
+                = link_to 'upload', '#', :class => 'tab upload'
+                .form-parts.link
+                  = f.text_field :image_src, :value => 'URLを入力'
+                .form-parts.upload
+                  span hogehogehogehogeho
+          .controls.local-menu
+            ul
+              li
+                a
+                  = fa_icon "rocket"
+                  | 投稿

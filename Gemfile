@@ -32,6 +32,8 @@ gem 'slim-rails'
 gem 'bourbon'
 gem 'neat'
 gem "font-awesome-rails"
+gem 'jquery-easing-rails'
+gem 'jquery-color'
 group :development do
   gem 'html2slim'
 end

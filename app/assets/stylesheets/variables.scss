@@ -27,16 +27,6 @@ $desktop_max_width: 1300px;
     @include transform(rotate(360deg));
   }
 }
-// antena-kun dash
-@keyframes dash_to_left {
-  0%   { left: 38%; opacity: 1.0; }
-  100% { left: -20%; opacity: 0.1; }
-}
-@keyframes dash_to_right {
-  0%   { right: 38%; opacity: 1.0; }
-  100% { right: -20%; opacity: 0.1; }
-}
-
 
 // -- + function + -------------
 @mixin to_icon($size) {

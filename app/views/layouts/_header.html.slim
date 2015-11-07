@@ -37,8 +37,9 @@ header
               | FAX：03-5919-3384
       #sign_in
         = link_to "-", gate_url
-.flash
-  p.notice
-    = notice
-  p.alert
-    = alert
+- if flash.keys.length > 0
+  .flash
+    p.notice
+      = notice
+    p.alert
+      = alert
