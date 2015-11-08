@@ -1,11 +1,24 @@
 nav#contents_nav
   ul
-    li
-      = link_to '投稿', ''
+    = controller_name_currenter 'li', 'posts'
+    li.posts
+      = link_to '#' do
+        = fa_icon 'pencil'
+        | 投稿
       ul
-        li
-          = link_to '一覧', admin_posts_url
-    li
-      = link_to 'メンバー', admin_users_url
-    li
-      = link_to 'データ', ''
+        li.index
+          = link_to admin_posts_url do
+            = fa_icon 'circle-o'
+            | 一覧
+        li.new
+          = link_to new_admin_post_url do
+            = fa_icon 'circle-o'
+            | 新規作成
+    li.users
+      = link_to admin_users_url do
+        = fa_icon 'users'
+        | メンバー
+    li.datas
+      = link_to '#' do
+        = fa_icon 'newspaper-o'
+        |データ
