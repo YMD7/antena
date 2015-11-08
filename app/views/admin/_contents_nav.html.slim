@@ -1,8 +1,11 @@
 nav#contents_nav
   ul
     li
-      = link_to '投稿', admin_path
+      = link_to '投稿', ''
+      ul
+        li
+          = link_to '一覧', posts_url
     li
-      = link_to 'メンバー', '#'
+      = link_to 'メンバー', users_url
     li
-      = link_to 'データ', '#'
+      = link_to 'データ', ''

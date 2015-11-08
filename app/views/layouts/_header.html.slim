@@ -39,7 +39,9 @@ header
         = link_to "-", gate_url
 - if flash.keys.length > 0
   .flash
-    p.notice
-      = notice
-    p.alert
-      = alert
+    - if flash.keys.include?('notice')
+      p.notice
+        = notice
+    - if flash.keys.include?('alert')
+      p.alert
+        = alert

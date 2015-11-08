@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   }
 
   match 'gate', :to => 'pages#login_gate', :via => 'get'
-  match 'admin', :to => 'admin#home', :via => 'get'
-
-  resources :posts, :path => 'admin/post'
+  match 'admin', :to => 'posts#index', :via => 'get'
+  resources :posts, :path => 'admin/posts'
+  resources :users, :path => 'admin/users'
 
 end

@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   layout 'admin'
-
+  # binding.pry_remote
+  def index
+  end
   def new
     @post = Post.new
     @current_user_id = current_user.nil? ? nil : current_user.id

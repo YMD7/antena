@@ -220,8 +220,10 @@ body.admin {
           @include flex-direction(row);
 
           border-left: 4px solid #f0f0f0;
-          margin-bottom: 20px;
-
+          
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
           &:hover {
             border-left: 4px solid #ccc;
           }
@@ -561,6 +563,8 @@ body.admin {
               color: #eee;
               font-size: 10px;
               text-align: center;
+              text-transform: capitalize;
+
               @include transition(all 0.2s linear);
 
               &:hover {
