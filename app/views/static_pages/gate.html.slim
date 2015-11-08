@@ -2,7 +2,7 @@
   - if user_signed_in?
     .logout
       h2 メンバーメニュー
-      = link_to '管理サイト', admin_path
+      = link_to '管理サイト', admin_posts_url
       = link_to 'ログアウト', destroy_user_session_path, method: :delete
   - else
     .login

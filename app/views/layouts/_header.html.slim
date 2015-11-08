@@ -1,7 +1,7 @@
 header
   .inner
     #menu.close
-      - if controller.controller_name === 'pages'
+      - if @need_menu_and_project
         = render "layouts/menu_icon"
     #logo
       = image_tag "antena-kun.png", :class => 'left'
@@ -9,9 +9,9 @@ header
         = image_tag "text_logo.svg"
       = image_tag "antena-kun.png", :class => 'right'
     #projects
-      - if controller.controller_name === 'pages'
+      - if @need_menu_and_project
         = image_tag "projects.svg"
-  - if controller.controller_name === 'pages'
+  - if @need_menu_and_project
     nav#side_menu
       .inner
         h2 アクセス
@@ -35,8 +35,8 @@ header
               | TEL：03-5919-3383（代表）
               br
               | FAX：03-5919-3384
-      #sign_in
-        = link_to "-", gate_url
+        #sign_in
+          = link_to "-", gate_url
 - if flash.keys.length > 0
   .flash
     - if flash.keys.include?('notice')
