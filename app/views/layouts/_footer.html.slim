@@ -1,2 +1,5 @@
-footer class="hidden"
+- footer_class = ''
+- if controller.controller_name === 'static_pages' && controller.action_name === 'top'
+  - footer_class = 'hidden'
+footer class=footer_class
   p © 2015 Antena Inc.
