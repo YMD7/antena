@@ -13,6 +13,10 @@ html, body {
   background: #fff;
   height: 100%;
   min-height: 100vh;
+  @include selection {
+    background-color: #456;
+    color: #ddd;
+  }
 }
 html, body,
 h1, h2, h3, h4, h5,
