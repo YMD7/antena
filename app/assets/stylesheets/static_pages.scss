@@ -34,28 +34,31 @@
     }
   }
   #posts {
-    .row {
-      &:nth-child(odd) {
-        background: #222222;
-      }
-      &:nth-child(even) {
-        background: #363636;
-      }
+    .row { // common
       .inner {
         @include outer-container;
         @include display(flex);
         @include align-items(stretch);
         
         .comment {
+          @include display(flex);
+          @include justify-content(flex-start);
+          @include align-items(center);
           @include flex-direction(column);
-          @include justify-content(flex-end);
 
-          .icon {
+          .icons {
             @include display(flex);
-            @include justify-content(center);
+            @include justify-content(flex-start);
+            @include align-items(flex-start);
+            @include flex-direction(row);
 
-            @include to_icon($icon_size);
-            margin: 0 auto;
+            .icon {
+              @include display(flex);
+              @include justify-content(center);
+
+              @include to_icon($icon_size);
+              margin: 0 auto;
+            }
           }
           .sentence {
             p {
@@ -102,6 +105,51 @@
         }
       } // .inner
     } // .row
+    .row.single {
+      &:nth-child(odd) {
+        background: #222222;
+      }
+      &:nth-child(even) {
+        background: #363636;
+      }
+    } // .row.single
+    .row.talk { // .talk
+      &:nth-child(odd) {
+        // background: #1d262f;
+        background: #222222;
+      }
+      &:nth-child(even) {
+        // background: lighten(#1d262f, 5%);
+        background: #363636;
+      }
+      &.talk .seed {
+        border-bottom: 1px solid #aaa;
+      }
+      .comment {
+        > span {
+          display: block;
+          border-top: 1px solid #444;
+          border-bottom: 1px solid #444;
+          @include texture(0deg, transparent, transparent, 67, 0);
+          color: #aaa;
+          text-align: center;
+        }
+        .icons {
+
+        }
+        .sentence {
+          h3 a {
+            color: #fff;
+            font-size: 50px;
+
+            &:hover {
+              background-color: #2f424b;
+              color: #f1f5ff;
+            }
+          }
+        }
+      }
+    } // .row.talk
   } // #posts
   #company {
     .top {
@@ -186,9 +234,10 @@ footer {
           .comment {
             @include span-columns(6);
             @include display(flex);
-            
-            padding: 40px 16px 0;
 
+            .icons {
+              width: 300px;
+            }
             .sentence {
               padding-bottom: 30px;
 
@@ -227,6 +276,59 @@ footer {
           }
         } // .inner
       } // .row
+      .row.single {
+        .inner {
+          .comment {
+            padding: 40px 16px 0;
+          }
+        }
+      } // .row.single
+      .row.talk {
+        .inner {
+          .comment {
+            padding: 0 16px;
+
+            .icons {
+              @include display(flex);
+              @include justify-content(center);
+              @include align-items(center);
+              @include flex-direction(row);
+
+              margin: 40px 0 22px;
+
+              svg {
+                width: 40px;
+                stroke: #aaa;
+              }
+            }
+            > span {
+              width: 100%;
+              padding: 9px;
+              font-size: 13px;
+              text-indent: 0.6em;
+              letter-spacing: 0.6em;
+            }
+            .sentence {
+              // margin: 10px;
+
+              h3 a {
+                line-height: 145%;
+              }
+            }
+            .read-more {
+              border: 1px solid #777;
+              width: 200px;
+              margin-top: 61px;
+              padding: 10px 0;
+              text-align: center;
+
+              a {
+                color: #777;
+              }
+            }
+          }
+        }
+      } // .row.talk
     } // #posts
     #company {
       margin-top: 240px;

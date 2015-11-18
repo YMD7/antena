@@ -1,25 +1,42 @@
 section#main.index
   #first_image style='background-image:url("/assets/tag_line.svg");'
   section#posts
-    .row class="hidden"
+    .row class="hidden talk"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+          span 対談
+          .icons
+            .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+            = render 'svgs/xcross'
+            .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
           .sentence
-            p
-              | どこに提案すれば造らせてくれるでしょうか。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
+            h3
+              = link_to '僕らの仕事､どこまで｢人工知能｣が奪うのか', ''
+          .read-more
+            = link_to '対談を読む', ''
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/1.jpg" class="lazy"
           span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
-    .row class="hidden"
+    / .row class="hidden talk"
+    /   .inner
+    /     .comment
+    /       .icons
+    /         .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+    /         .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
+    /       .sentence
+    /         p
+    /           = link_to '僕らの仕事､どこまで｢人工知能｣が奪うのか', ''
+    /       .seed
+    /         p
+    /           | 「プロフェッショナル対談」は、経営共創基盤のマネージングディレクターである塩野誠氏が、次の時代を切り開くリーダーと対談し、キャリアについてのホンネを引き出すコーナー。今回は特別編。今年、ソフトバンクが家庭用ロボット「Pepper」を発表するなど、ロボットは、加速度的に進化を続けている。ロボットの技術が今後ますます発展し、人間の能力を超越したとき、どんな未来が待っているのか。刊行したばかりの『東大准教授に教わる「人工知能って、そんなことまでできるんですか？」』で対談した人工知能学の権威、東京大学の松尾豊准教授に、あらためて話を聞きました。今回はその前編です。
+    /     .image
+    /       img src="/assets/placeholder-image.png" data-original="/assets/posts/1.jpg" class="lazy"
+    /       span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
           .sentence
             p
               | 移動はどんどん便利になる。行きたくなる場所を創らねば。
@@ -31,10 +48,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/2.jpg" class="lazy"
           span http://livedoor.blogimg.jp/laba_q/imgs/5/5/5549ac6b.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
           .sentence
             p
               | なにかを掴む感触と人の気持ちを掴む感覚が似ているのは興味ぶかい。
@@ -46,10 +64,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/3.jpg" class="lazy"
           span http://img.gamespark.jp/imgs/zoom/77453.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/ishii.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/ishii.jpg");'
           .sentence
             p
               | これができるなら、地上のどの空間にも応用できそうです。
@@ -61,10 +80,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/4.jpg" class="lazy"
           span http://www.lifehacker.jp/assets_c/2014/11/141113cpi-thumb-640x352-81227.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
           .sentence
             p
               | どこに提案すれば造らせてくれるでしょうか。
@@ -76,10 +96,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/1.jpg" class="lazy"
           span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
           .sentence
             p
               | 移動はどんどん便利になる。行きたくなる場所を創らねば。
@@ -91,10 +112,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/2.jpg" class="lazy"
           span http://livedoor.blogimg.jp/laba_q/imgs/5/5/5549ac6b.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
           .sentence
             p
               | なにかを掴む感触と人の気持ちを掴む感覚が似ているのは興味ぶかい。
@@ -106,10 +128,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/3.jpg" class="lazy"
           span http://img.gamespark.jp/imgs/zoom/77453.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/ishii.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/ishii.jpg");'
           .sentence
             p
               | これができるなら、地上のどの空間にも応用できそうです。
@@ -121,10 +144,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/4.jpg" class="lazy"
           span http://www.lifehacker.jp/assets_c/2014/11/141113cpi-thumb-640x352-81227.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
           .sentence
             p
               | どこに提案すれば造らせてくれるでしょうか。
@@ -136,10 +160,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/1.jpg" class="lazy"
           span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
           .sentence
             p
               | 移動はどんどん便利になる。行きたくなる場所を創らねば。
@@ -151,10 +176,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/2.jpg" class="lazy"
           span http://livedoor.blogimg.jp/laba_q/imgs/5/5/5549ac6b.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
           .sentence
             p
               | なにかを掴む感触と人の気持ちを掴む感覚が似ているのは興味ぶかい。
@@ -166,130 +192,11 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/3.jpg" class="lazy"
           span http://img.gamespark.jp/imgs/zoom/77453.jpg
-    .row class="hidden"
+    .row class="hidden single"
       .inner
         .comment
-          .icon style='background-image:url("/assets/user_icons/ishii.jpg");'
-          .sentence
-            p
-              | これができるなら、地上のどの空間にも応用できそうです。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
-        .image
-          img src="/assets/placeholder-image.png" data-original="/assets/posts/4.jpg" class="lazy"
-          span http://www.lifehacker.jp/assets_c/2014/11/141113cpi-thumb-640x352-81227.jpg
-    .row class="hidden"
-      .inner
-        .comment
-          .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
-          .sentence
-            p
-              | どこに提案すれば造らせてくれるでしょうか。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
-        .image
-          img src="/assets/placeholder-image.png" data-original="/assets/posts/1.jpg" class="lazy"
-          span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
-    .row class="hidden"
-      .inner
-        .comment
-          .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
-          .sentence
-            p
-              | 移動はどんどん便利になる。行きたくなる場所を創らねば。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
-        .image
-          img src="/assets/placeholder-image.png" data-original="/assets/posts/2.jpg" class="lazy"
-          span http://livedoor.blogimg.jp/laba_q/imgs/5/5/5549ac6b.jpg
-    .row class="hidden"
-      .inner
-        .comment
-          .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
-          .sentence
-            p
-              | なにかを掴む感触と人の気持ちを掴む感覚が似ているのは興味ぶかい。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
-        .image
-          img src="/assets/placeholder-image.png" data-original="/assets/posts/3.jpg" class="lazy"
-          span http://img.gamespark.jp/imgs/zoom/77453.jpg
-    .row class="hidden"
-      .inner
-        .comment
-          .icon style='background-image:url("/assets/user_icons/ishii.jpg");'
-          .sentence
-            p
-              | これができるなら、地上のどの空間にも応用できそうです。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
-        .image
-          img src="/assets/placeholder-image.png" data-original="/assets/posts/4.jpg" class="lazy"
-          span http://www.lifehacker.jp/assets_c/2014/11/141113cpi-thumb-640x352-81227.jpg
-    .row class="hidden"
-      .inner
-        .comment
-          .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
-          .sentence
-            p
-              | どこに提案すれば造らせてくれるでしょうか。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
-        .image
-          img src="/assets/placeholder-image.png" data-original="/assets/posts/1.jpg" class="lazy"
-          span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
-    .row class="hidden"
-      .inner
-        .comment
-          .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
-          .sentence
-            p
-              | 移動はどんどん便利になる。行きたくなる場所を創らねば。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
-        .image
-          img src="/assets/placeholder-image.png" data-original="/assets/posts/2.jpg" class="lazy"
-          span http://livedoor.blogimg.jp/laba_q/imgs/5/5/5549ac6b.jpg
-    .row class="hidden"
-      .inner
-        .comment
-          .icon style='background-image:url("/assets/user_icons/kawakami.jpg");'
-          .sentence
-            p
-              | なにかを掴む感触と人の気持ちを掴む感覚が似ているのは興味ぶかい。
-          .seed
-            span
-              span - 創造のタネ -
-              br
-              | 株式会社LIG | CSS3のFlexboxを基本から理解して、使い倒そう！
-        .image
-          img src="/assets/placeholder-image.png" data-original="/assets/posts/3.jpg" class="lazy"
-          span http://img.gamespark.jp/imgs/zoom/77453.jpg
-    .row class="hidden"
-      .inner
-        .comment
-          .icon style='background-image:url("/assets/user_icons/ishii.jpg");'
+          .icons
+            .icon style='background-image:url("/assets/user_icons/ishii.jpg");'
           .sentence
             p
               | これができるなら、地上のどの空間にも応用できそうです。
