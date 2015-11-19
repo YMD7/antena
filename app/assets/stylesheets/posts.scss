@@ -33,9 +33,13 @@
 
         .icons {
           @include display(flex);
-          @include justify-content(flex-start);
-          @include align-items(flex-start);
+          @include justify-content(center);
+          @include align-items(center);
           @include flex-direction(row);
+
+          svg {
+            stroke: #eee;
+          }
         }
         .text {
           h1 {
@@ -87,6 +91,9 @@
               @include to_icon($icon_size * 1.4);
 
               margin: 0 40px;
+            }
+            svg {
+              width: 46px;
             }
           }
           .text {
@@ -185,6 +192,9 @@
               @include to_icon($icon_size * 1.1);
 
               margin: 0 30px;
+            }
+            svg {
+              width: 40px;
             }
           }
           .text {
