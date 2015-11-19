@@ -17,21 +17,22 @@ section#main.index
         .image
           img src="/assets/placeholder-image.png" data-original="/assets/posts/1.jpg" class="lazy"
           span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
-    / .row class="hidden talk"
-    /   .inner
-    /     .comment
-    /       .icons
-    /         .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
-    /         .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
-    /       .sentence
-    /         p
-    /           = link_to '僕らの仕事､どこまで｢人工知能｣が奪うのか', ''
-    /       .seed
-    /         p
-    /           | 「プロフェッショナル対談」は、経営共創基盤のマネージングディレクターである塩野誠氏が、次の時代を切り開くリーダーと対談し、キャリアについてのホンネを引き出すコーナー。今回は特別編。今年、ソフトバンクが家庭用ロボット「Pepper」を発表するなど、ロボットは、加速度的に進化を続けている。ロボットの技術が今後ますます発展し、人間の能力を超越したとき、どんな未来が待っているのか。刊行したばかりの『東大准教授に教わる「人工知能って、そんなことまでできるんですか？」』で対談した人工知能学の権威、東京大学の松尾豊准教授に、あらためて話を聞きました。今回はその前編です。
-    /     .image
-    /       img src="/assets/placeholder-image.png" data-original="/assets/posts/1.jpg" class="lazy"
-    /       span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
+    .row class="hidden talk"
+      .inner
+        .comment
+          span 対談
+          .icons
+            .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+            = render 'svgs/xcross'
+            .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
+          .sentence
+            h3
+              = link_to '僕らの仕事､どこまで｢人工知能｣が奪うのか', ''
+          .read-more
+            = link_to '対談を読む', ''
+        .image
+          img src="/assets/placeholder-image.png" data-original="/assets/posts/4.jpg" class="lazy"
+          span http://i.gzn.jp/img/2012/06/27/amazing-infrastructure/09.jpg
     .row class="hidden single"
       .inner
         .comment

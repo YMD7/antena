@@ -34,11 +34,13 @@
     }
   }
   #posts {
-    .row { // common
+    .row {
       .inner {
         @include outer-container;
         @include display(flex);
         @include align-items(stretch);
+
+        cursor: default;
         
         .comment {
           @include display(flex);
@@ -66,7 +68,7 @@
             }
           }
           .seed {
-            border-top: 1px solid #aaa;
+            border-top: 1px solid #666;
             margin-top: auto;
             font-family: $jp_gothic;
             text-align: center;
@@ -115,12 +117,20 @@
     } // .row.single
     .row.talk { // .talk
       &:nth-child(odd) {
-        // background: #1d262f;
         background: #222222;
+
+        .comment > span {
+          border-top: 1px solid #404040;
+          border-bottom: 1px solid #404040;
+        }
       }
       &:nth-child(even) {
-        // background: lighten(#1d262f, 5%);
         background: #363636;
+
+        .comment > span {
+          border-top: 1px solid #555;
+          border-bottom: 1px solid #555;
+        }
       }
       &.talk .seed {
         border-bottom: 1px solid #aaa;
@@ -128,24 +138,60 @@
       .comment {
         > span {
           display: block;
-          border-top: 1px solid #444;
-          border-bottom: 1px solid #444;
-          @include texture(0deg, transparent, transparent, 67, 0);
+          width: 100%;
+          padding: 9px;
           color: #aaa;
+          font-size: 13px;
+          text-indent: 0.6em;
           text-align: center;
+          letter-spacing: 0.6em;
         }
         .icons {
+          @include display(flex);
+          @include justify-content(center);
+          @include align-items(center);
+          @include flex-direction(row);
 
+          svg {
+            stroke: #aaa;
+          }
         }
         .sentence {
           h3 a {
             color: #fff;
             font-size: 50px;
+            @include transition(all 0.1s ease-in-out);
 
             &:hover {
               background-color: #2f424b;
               color: #f1f5ff;
             }
+          }
+        }
+        .read-more {
+          @include flex(1);
+
+          @include display(flex);
+          @include justify-content(flex-end);
+          @include align-items(flex-start);
+          @include flex-direction(column);
+          
+          &:hover {
+            a {
+              border: 1px solid transparent;
+              background-color: #2f424b;
+              color: #d1d5de;
+            }
+          }
+          a {
+            display: block;
+            border: 1px solid #777;
+            width: 200px;
+            margin: 0 auto;
+            padding: 10px 0;
+            color: #777;
+            text-align: center;
+            @include transition(all 0.2s ease-in-out);
           }
         }
       }
@@ -280,50 +326,37 @@ footer {
         .inner {
           .comment {
             padding: 40px 16px 0;
+
+            .seed {
+              width: 100%;
+            }
           }
         }
       } // .row.single
       .row.talk {
         .inner {
           .comment {
+            @include justify-content(stretch);
+            @include align-items(center);
+            
             padding: 0 16px;
 
             .icons {
-              @include display(flex);
-              @include justify-content(center);
-              @include align-items(center);
-              @include flex-direction(row);
-
-              margin: 40px 0 22px;
+              margin: 44px 0 22px;
 
               svg {
                 width: 40px;
-                stroke: #aaa;
               }
             }
-            > span {
-              width: 100%;
-              padding: 9px;
-              font-size: 13px;
-              text-indent: 0.6em;
-              letter-spacing: 0.6em;
-            }
             .sentence {
-              // margin: 10px;
-
               h3 a {
                 line-height: 145%;
               }
             }
             .read-more {
-              border: 1px solid #777;
-              width: 200px;
-              margin-top: 61px;
-              padding: 10px 0;
-              text-align: center;
-
               a {
-                color: #777;
+                width: 200px;
+                padding: 10px 0;
               }
             }
           }
@@ -408,16 +441,12 @@ footer {
           .comment {
             @include span-columns(12);
             
-            padding: 80px 4% 0;
-
             .icon {
               @include to_icon($icon_size * 0.85);
             }
             .sentence {
-              padding-bottom: 20px;
-
               p {
-                padding-top: 30px;
+                padding: 30px 0 36px;
                 font-size: 36px;
                 text-align: justify;
                 line-height: 140%;
@@ -437,7 +466,7 @@ footer {
             @include span-columns(12);
             @include display(flex);
 
-            padding: 30px 4%;
+            padding: 30px 0;
 
             span {
               position: relative;
@@ -449,6 +478,32 @@ footer {
           }
         } // .inner
       } // .row
+      .row.single {
+        .comment {
+          padding: 80px 5% 0;
+        }
+      } // .row.single
+      .row.talk {
+        .comment {
+          padding: 40px 5% 0;
+
+          .icons {
+            margin-top: 40px;
+
+            svg {
+              width: 40px;
+            }
+          }
+          .sentence {
+            padding: 30px 0 36px;
+
+            h3 a {
+              font-size: 36px;
+              line-height: 140%;
+            }
+          }
+        }
+      } // .row.talk
     } // #posts
     #company {
       margin-top: 50px;
@@ -482,7 +537,7 @@ footer {
         margin-top: 70px;
 
         iframe {
-          width: 90%;
+          width: 100%;
           height: 280px;
         }
       }
