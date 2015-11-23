@@ -160,8 +160,6 @@ header {
 //                     + contents area +
 // --------------------------------
 
-body.admin {
-
 // -- + common + -------------
 // common
 
@@ -226,14 +224,11 @@ body.admin {
 }
 // mobile
 
-}
-// body.admin
-
 
 
 // ==========================================================================
 //
-//  ++ posts_index ++
+//  ++ posts index ++
 //
 // ==========================================================================
 
@@ -601,7 +596,7 @@ body.admin {
               width: 6em;
               margin-left: auto;
               padding: 4px;
-              color: #eee;
+              color: #555;
               font-size: 10px;
               text-align: center;
               text-transform: capitalize;
@@ -626,7 +621,7 @@ body.admin {
                 border-bottom: 1px solid transparent;
                 width: 100%;
                 padding: 4px 0 2px;
-                color: #eee;
+                color: #555;
                 font-size: 10px;
                 text-align: center;
 
@@ -638,6 +633,13 @@ body.admin {
                 }
               }
             }
+          }
+          > span {
+            position: absolute;
+            right: 0;
+            bottom: -14px;
+            font-size: 10px;
+            color: #555;
           }
         }
       } // .inner
