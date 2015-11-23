@@ -17,14 +17,38 @@ section#main.posts-new
             | 独り言
           li.talk
             | 対談
-        .inner
+        .inner.single
           = form_for @post do |f|
             - @post.user_id = @current_user_id
             = hidden_field :post, :user_id
             .comment
               .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
               .sentence
-                = f.text_area :comment, :value => "テキストを入力"
+                = f.text_area :comment, :value => "single"
+              .seed
+                span
+                  span - 創造のタネ -
+                  br
+                  = f.text_field :seed_title, :value => "URLを入力"
+                  = link_to '設定', '#', :id => 'seed_url', :class => 'btn unset'
+            .image
+              = image_tag 'placeholder-image.png'
+              .sticker
+                = link_to 'upload', '#', :class => 'tab upload'
+                .form-parts.link
+                  = f.text_field :image_src, :value => 'URLを入力'
+                .form-parts.upload
+                  span hogehogehogehogeho
+              span
+                | (c) image.example.com
+        .inner.talk.hidden
+          = form_for @post do |f|
+            - @post.user_id = @current_user_id
+            = hidden_field :post, :user_id
+            .comment
+              .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+              .sentence
+                = f.text_area :comment, :value => "talk"
               .seed
                 span
                   span - 創造のタネ -

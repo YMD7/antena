@@ -35,8 +35,15 @@ ready = ->
   # ==========================================================================
 
   # -- + single / talk tab UI + -------------
-  
-  
+  $('#draft_contents .row > ul > li').on 'click', ->
+    $(this).siblings().removeClass('current')
+    $(this).addClass('current')
+
+    postType = $(this).attr('class').split(' ')[0]
+    target   = $("#draft_contents .row .inner.#{postType}")
+    target.siblings('.inner').addClass('hidden')
+    target.removeClass('hidden')
+
   # -- + image src tab UI + -------------
   $('.sticker').each ->
     $(this).children('.form-parts').first().addClass('is-open').show()
