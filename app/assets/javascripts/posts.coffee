@@ -14,5 +14,6 @@ ready = ->
   
   $('#title').height(tH)
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+if location.pathname.match('posts')
+  $(document).ready(ready)
+  $(document).on('page:load', ready)

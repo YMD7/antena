@@ -2,7 +2,7 @@ ready = ->
   
   # ==========================================================================
   #
-  #  ++ pages ++
+  #  ++ top ++
   #
   # ==========================================================================
 
@@ -38,5 +38,6 @@ ready = ->
       ]
         hidden.removeClass('hidden')
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+if location.pathname is '/'
+  $(document).ready(ready)
+  $(document).on('page:load', ready)
