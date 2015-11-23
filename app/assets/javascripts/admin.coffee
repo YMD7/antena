@@ -34,7 +34,10 @@ ready = ->
   #
   # ==========================================================================
 
-  # -- + tab UI + -------------
+  # -- + single / talk tab UI + -------------
+  
+  
+  # -- + image src tab UI + -------------
   $('.sticker').each ->
     $(this).children('.form-parts').first().addClass('is-open').show()
   $('.tab').on 'click', ->

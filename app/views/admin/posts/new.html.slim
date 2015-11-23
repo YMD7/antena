@@ -9,18 +9,18 @@ section#main.posts-new
         li
           a
             = fa_icon "tag"
-            | ほげ
+            | タグ
     #draft_contents
       .row
-        = form_for @post do |f|
-          - @post.user_id = @current_user_id
-          = hidden_field :post, :user_id
-          ul
-            li.current
-              | 独り言
-            li
-              | 対談
-          .inner
+        ul
+          li.single.current
+            | 独り言
+          li.talk
+            | 対談
+        .inner
+          = form_for @post do |f|
+            - @post.user_id = @current_user_id
+            = hidden_field :post, :user_id
             .comment
               .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
               .sentence
@@ -41,11 +41,11 @@ section#main.posts-new
                   span hogehogehogehogeho
               span
                 | (c) image.example.com
-          .controls.local-menu
-            ul
-              li
-                a
-                  - 30.times do
-                    = image_tag 'antena-kun.png'
-                  = fa_icon "rocket"
-                  | 投稿
+        .controls.local-menu
+          ul
+            li
+              a
+                - 30.times do
+                  = image_tag 'antena-kun.png'
+                = fa_icon "rocket"
+                | 投稿

@@ -423,7 +423,7 @@ header {
     &:nth-child(even) .inner {
       background: #363636;
     }
-    > form > ul {
+    > ul {
       overflow: hidden;
       display: inline-block;
       border-radius: 18px;
@@ -441,26 +441,22 @@ header {
         padding: 6px 16px;
         color: #666;
         font-size: 12px;
+        @include transition(all 0.1s linear);
 
         &.current {
           background: #2e6ace;
           color: #fff;
-
-          > i {
-            color: #153e83;
-          }
         }
         &:last-child {
           border-right: 1px solid transparent;
         }
-        > i {
-          margin-right: 6px;
-          color: #ddd;
-          font-size: 15px;
+        &:hover {
+          background: darken(#2e6ace, 15%);
+          color: #fff;
         }
       }
     }
-    .inner {
+    .inner > form {
       @include display(flex);
       @include justify-content(flex-start);
       @include align-items(stretch);
