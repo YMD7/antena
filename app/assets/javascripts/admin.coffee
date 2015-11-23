@@ -146,5 +146,6 @@ ready = ->
         }, 200, 'linear'
       , 2000
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+if location.pathname.match('admin')
+  $(document).ready(ready)
+  $(document).on('page:load', ready)
