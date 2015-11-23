@@ -3,7 +3,8 @@ nav#contents_nav
     li.posts
       = link_to '' do
         = fa_icon 'pencil'
-        | 投稿
+        span 投稿
+        = fa_icon 'angle-left'
       ul
         li
           = link_to admin_posts_url, :class => 'posts' do
@@ -16,7 +17,8 @@ nav#contents_nav
     li.users
       = link_to '' do
         = fa_icon 'users'
-        | メンバー
+        span メンバー
+        = fa_icon 'angle-left'
       ul
         li
           = link_to admin_users_url, :class => 'users' do
@@ -25,7 +27,8 @@ nav#contents_nav
     li.datas
       = link_to '' do
         = fa_icon 'newspaper-o'
-        | データ
+        span データ
+        = fa_icon 'angle-left'
       ul
         li
           = link_to admin_users_url, :class => 'datas' do

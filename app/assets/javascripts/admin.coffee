@@ -6,9 +6,14 @@ ready = ->
   #
   # ==========================================================================
 
+  # -- + controll parents + -------------
   $("#contents_nav > ul > li > a").each ->
     $(this).on 'click', ->
       event.preventDefault()
+      $(this).next('ul').slideToggle 300, ->
+        $(this).prev('a').find('i:last-child')
+          .toggleClass('fa-angle-left')
+          .toggleClass('fa-angle-down')
 
   # -- + add current to lists + -------------
   pathname = location.pathname
@@ -17,7 +22,10 @@ ready = ->
   childClass  = pathname.split('/admin/')[1].replace('/', '-')
 
   $("#contents_nav > ul > li.#{parentClass}").each ->
-    $(this).children('a').addClass('current')
+    $(this).children('ul').css({display: 'block'})
+    $(this).children('a').addClass('current').find('i:last-child')
+      .toggleClass('fa-angle-left')
+      .toggleClass('fa-angle-down')
     $(this).find("ul > li > a.#{childClass}").addClass('current')
 
   # ==========================================================================
