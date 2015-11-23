@@ -5,19 +5,29 @@ nav#contents_nav
         = fa_icon 'pencil'
         | 投稿
       ul
-        li.index
-          = link_to admin_posts_url do
+        li
+          = link_to admin_posts_url, :class => 'posts' do
             = fa_icon 'circle-o'
-            | 一覧
-        li.new
-          = link_to new_admin_post_url do
+            | 投稿一覧
+        li
+          = link_to new_admin_post_url, :class => 'posts-new' do
             = fa_icon 'circle-o'
             | 新規作成
     li.users
-      = link_to admin_users_url do
+      = link_to '' do
         = fa_icon 'users'
         | メンバー
+      ul
+        li
+          = link_to admin_users_url, :class => 'members' do
+            = fa_icon 'circle-o'
+            | メンバー一覧
     li.datas
-      = link_to '#' do
+      = link_to '' do
         = fa_icon 'newspaper-o'
-        |データ
+        | データ
+      ul
+        li
+          = link_to admin_users_url, :class => 'datas' do
+            = fa_icon 'circle-o'
+            | データ一覧

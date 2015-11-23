@@ -14,7 +14,7 @@ body.admin {
   @include align-items(stretch);
   @include flex-direction(column);
 
-  background: #222;
+  @include linear-gradient(90deg, #222, #222);
   height: auto;
 
 // --------------------------------
@@ -129,21 +129,20 @@ header {
       @include flex(1);
 
       ul {
-
         li {
           .current > a {
-            border-left: 4px solid #dd4b39;
+            border-left: 3px solid #dd4b39;
           }
           a {
             display: block;
-            border-left: 4px solid #000;
+            border-left: 3px solid #000;
             background: #2d2d2d;
             padding: 0.9em 1.4em;
             font-size: 13px;
             color: #999;
 
             &:hover {
-              border-left: 4px solid #ffe;
+              border-left: 3px solid #ffe;
               background: #333;
               color: #eee;
             }
@@ -156,9 +155,9 @@ header {
               padding-left: 10px;
 
               a {
-                border-left: 4px solid #222;
+                border-left: 3px solid #222;
                 background: #222;
-                box-shadow: -1px 0 0 #777;
+                box-shadow: -1px 0 0 #383838;
               }
             }
           }
