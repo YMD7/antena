@@ -119,6 +119,14 @@ ready = ->
         imgTag.fadeOut 300, ->
           imgTag.attr({src: url})
         imgTag.fadeIn 300, 'easeInQuad'
+
+        postType = getPostType()
+        if postType is 'talk'
+          target = e.parents('.talk-title').next('.talk-body').find('#title .bg')
+          target.fadeOut 300, ->
+            target.css({backgroundImage: "url('#{url}')"})
+          target.fadeIn 300, 'easeInQuad'
+
       error: ->
         target = e.parent('.form-parts')
         errorEffect target
@@ -126,8 +134,15 @@ ready = ->
     else
       target = e.parent('.form-parts')
       errorEffect target
+
+  # -- + talk title setter + -------------
+  $('#draft_contents .inner.talk .talk-title .comment .sentence textarea').on 'focusout', ->
+    $('#draft_contents .row .inner.talk .talk-body #title h1').text($(this).text())
   
   # -- + utils + -------------
+  getPostType = ->
+    $('#draft_contents .row > ul > li.current').attr('class').split(' ')[0]
+
   isUrl = (url) ->
     url_ck_reg = /^http[a-z]?\:\/\//
     url_ck_reg.test url

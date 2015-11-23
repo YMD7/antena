@@ -201,6 +201,7 @@ header {
         min-width: 86px;
         padding: 10px 12px 8px;
         color: #888;
+        font-family: $jp_gothic;
         font-size: 11px;
 
         @include transition(all 0.1s linear);
@@ -234,7 +235,7 @@ header {
 // ==========================================================================
 
 // -- + common + -------------
-#main {
+#main.index {
   font-family: $jp_gothic;
   color: #ddd;
 
@@ -246,7 +247,7 @@ header {
 
 // -- + desktop + -------------
 @include media($desktop) {
-  #main {
+  #main.index {
     padding-top: 30px;
 
     #contents_field {
@@ -440,6 +441,7 @@ header {
         background: #f0f0f0;
         padding: 6px 16px;
         color: #666;
+        font-family: $jp_gothic;
         font-size: 12px;
         @include transition(all 0.1s linear);
 
@@ -478,6 +480,8 @@ header {
           margin: 0 auto;
         }
         .sentence {
+          width: 100%;
+
           p {
             color: #fff;
           }
@@ -536,7 +540,124 @@ header {
           }
         }
       }
-    } // .inner
+    } // .inner > form
+    .inner.single > form {
+      .comment {
+        padding: 40px 16px 0;
+      }
+    } // .inner.single > form
+    .inner.talk > form {
+      @include flex-direction(column);
+
+      .talk-title {
+        @include display(flex);
+        @include justify-content(flex-start);
+        @include align-items(stretch);
+        @include flex-direction(row);
+
+        .comment {
+          @include align-items(center);
+
+          > span {
+            display: block;
+            border-top: 1px solid #404040;
+            border-bottom: 1px solid #404040;
+            width: 100%;
+            padding: 9px;
+            color: #aaa;
+            font-size: 13px;
+            text-indent: 0.6em;
+            text-align: center;
+            letter-spacing: 0.6em;
+          }
+          .icons {
+            @include display(flex);
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-direction(row);
+
+            width: 300px;
+            margin: 44px 0 22px;
+
+            svg {
+              width: 40px;
+              stroke: #aaa;
+            }
+          }
+        }
+      } // .talk-title
+      .talk-body {
+        margin-top: 40px;
+
+        #title {
+          position: relative;
+
+          .bg {
+            position: absolute;
+            background-color: #aaa;
+            background-position: center center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+
+            @include filter(grayscale(90%) brightness(40%) contrast(120%));
+          }
+          .container {
+            @include display(flex);
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-direction(column);
+
+            position: relative;
+
+            .icons {
+              @include display(flex);
+              @include justify-content(center);
+              @include align-items(center);
+              @include flex-direction(row);
+
+              svg {
+                stroke: #eee;
+              }
+            }
+            .text {
+              h1 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 0 0 10px rgba(0,0,0,0.4);
+              }
+            }
+          } // .container
+        } // #title
+        #summary {
+          @include texture(100deg, #222, #111, 77, 0);
+          width: 100%;
+
+          p {
+            color: #666;
+          }
+        } // #summary
+        #body {
+          background: #f0f0f0;
+          @include linear-gradient(90deg, #fefefe, #f0f0f0);
+          color: #444;
+
+          .container {
+            @include display(flex);
+            @include justify-content(flex-start);
+            @include align-items(center);
+            @include flex-direction(column);
+
+            margin: 0 auto;
+
+            p > img {
+              position: absolute;
+              display: block;
+            }
+          }
+        }
+      }
+    } // .inner.talk > form
   } // .row
 } // #draft_contents
 // common
@@ -549,12 +670,10 @@ header {
       &:not(:last-child) {
         margin-bottom: 20px;
       }
-      .inner {
+      .inner > form {
         padding: 30px;
 
         .comment {
-          padding: 40px 16px 0;
-
           .sentence {
             @include flex(1);
 
@@ -676,7 +795,109 @@ header {
             color: #555;
           }
         }
-      } // .inner
+      } // .inner > form
+      .inner.single > form {
+        .comment {
+          padding: 40px 16px 0;
+        }
+      } // .inner.single > form
+      .inner.talk > form {
+        .talk-title {
+          .comment {
+            padding: 0 16px;
+          }
+        }
+        .talk-body {
+          #title {
+            .container {
+              padding: 10% 0;
+
+              .icons {
+                img {
+                  @include to_icon($icon_size * 1.4);
+
+                  margin: 0 40px;
+                }
+                svg {
+                  width: 46px;
+                }
+              }
+              .text {
+                max-width: 780px;
+                margin-top: 7%;
+                
+                h1 {
+                  font-size: 68px;
+                  text-shadow: 0 0 10px rgba(0,0,0,0.4);
+                  line-height: 130%;
+                }
+              }
+            }
+          } // #title
+          #summary {
+            padding: 70px;
+
+            p {
+              max-width: 780px;
+              margin: 0 auto;
+              font-size: 17px;
+              line-height: 180%;
+            }
+          } // #summary
+          #body {
+            .container {
+              max-width: 800px;
+              padding: 80px 0;
+
+              h2 {
+                padding: 40px 0;
+                font-size: 30px;
+                text-align: center;
+                line-height: 110%;
+              }
+              > img {
+                max-width: 100%;
+                max-height: 600px;
+                margin: 40px 0;
+              }
+              p {
+                position: relative;
+                width: 660px;
+                padding: 30px;
+                font-size: 18px;
+                line-height: 150%;
+
+                > img {
+                  border-radius: 60px;
+                  background: #ddd;
+                  width: 60px;
+                  height: 60px;
+
+                  @include filter(grayscale(95%) contrast(85%));
+                }
+                &.first-person {
+                  margin-right: 40px;
+
+                  > img {
+                    left: -80px;
+                  }
+                }
+                &.second-person {
+                  margin-left: 40px;
+
+                  > img {
+                    right: -80px;
+                  }
+                }
+                &.end {
+                  padding: 60px 0 40px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
       .controls {
         background: #444;
         
