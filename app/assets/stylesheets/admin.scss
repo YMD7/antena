@@ -163,6 +163,8 @@ header {
 //                     + contents area +
 // --------------------------------
 
+body.admin {
+
 // -- + common + -------------
 // common
 
@@ -226,6 +228,9 @@ header {
 @include media($mobile) {
 }
 // mobile
+
+}
+// body.admin
 
 
 
