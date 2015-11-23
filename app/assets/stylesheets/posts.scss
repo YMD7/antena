@@ -70,6 +70,11 @@
         @include flex-direction(column);
 
         margin: 0 auto;
+
+        p > img {
+          position: absolute;
+          display: block;
+        }
       }
     }
   } // #article
@@ -142,8 +147,6 @@
             line-height: 150%;
 
             > img {
-              position: absolute;
-              display: block;
               border-radius: 60px;
               background: #ddd;
               width: 60px;
@@ -155,14 +158,14 @@
               margin-right: 40px;
 
               > img {
-                left: -90px;
+                left: -80px;
               }
             }
             &.second-person {
               margin-left: 40px;
 
               > img {
-                right: -90px;
+                right: -80px;
               }
             }
             &.end {
@@ -236,14 +239,12 @@
           }
           p {
             position: relative;
-            width: 75%;
+            width: 72%;
             padding: 30px 6px;
             font-size: 16px;
             line-height: 150%;
 
             > img {
-              position: absolute;
-              display: block;
               border-radius: 56px;
               background: #ddd;
               width: 56px;
