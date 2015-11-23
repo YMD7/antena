@@ -2,6 +2,26 @@ ready = ->
 
   # ==========================================================================
   #
+  #  ++ contents nav ++
+  #
+  # ==========================================================================
+
+  $("#contents_nav > ul > li > a").each ->
+    $(this).on 'click', ->
+      event.preventDefault()
+
+  # -- + add current to lists + -------------
+  pathname = location.pathname
+
+  parentClass = pathname.split('/admin/')[1].split('/')[0]
+  childClass  = pathname.split('/admin/')[1].replace('/', '-')
+
+  $("#contents_nav > ul > li.#{parentClass}").each ->
+    $(this).children('a').addClass('current')
+    $(this).find("ul > li > a.#{childClass}").addClass('current')
+
+  # ==========================================================================
+  #
   #  ++ posts new ++
   #
   # ==========================================================================
