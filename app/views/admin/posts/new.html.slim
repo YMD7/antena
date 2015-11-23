@@ -8,18 +8,23 @@ section#main.posts-new
       ul
         li
           a
-            = fa_icon "plus-square"
+            = fa_icon "tag"
             | ほげ
     #draft_contents
       .row
         = form_for @post do |f|
           - @post.user_id = @current_user_id
           = hidden_field :post, :user_id
+          ul
+            li.current
+              | 独り言
+            li
+              | 対談
           .inner
             .comment
               .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
               .sentence
-                = f.text_area :comment, :value => "テキストのを入力"
+                = f.text_area :comment, :value => "テキストを入力"
               .seed
                 span
                   span - 創造のタネ -

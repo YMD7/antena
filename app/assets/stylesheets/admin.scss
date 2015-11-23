@@ -196,18 +196,19 @@ header {
         @include flex-direction(row);
 
         border-radius: 4px;
-        background: #00c0ef;
+        background: #ddd;
         width: 8%;
         min-width: 86px;
         padding: 10px 12px 8px;
-        color: #eee;
+        color: #888;
         font-size: 11px;
 
         @include transition(all 0.1s linear);
 
         &:hover {
           border-radius: 0;
-          background: darken(#00c0ef, 15%);
+          background: darken(#ddd, 15%);
+          color: #555;
         }
         i {
           margin: -1px 6px 0 -2px;
@@ -412,15 +413,52 @@ header {
 
 // -- + common + -------------
 #draft_contents {
-  background: #fff;
-  padding: 20px;
-
   .row {
+    background: #fff;
+    padding: 20px;
+
     &:nth-child(odd) .inner {
       background: #222222;
     }
     &:nth-child(even) .inner {
       background: #363636;
+    }
+    > form > ul {
+      overflow: hidden;
+      display: inline-block;
+      border-radius: 18px;
+      margin-bottom: 4px;
+
+      li {
+        @include display(flex);
+        @include justify-content(center);
+        @include align-items(center);
+        @include flex-direction(row);
+
+        cursor: pointer;
+        float: left;
+        background: #f0f0f0;
+        padding: 6px 16px;
+        color: #666;
+        font-size: 12px;
+
+        &.current {
+          background: #2e6ace;
+          color: #fff;
+
+          > i {
+            color: #153e83;
+          }
+        }
+        &:last-child {
+          border-right: 1px solid transparent;
+        }
+        > i {
+          margin-right: 6px;
+          color: #ddd;
+          font-size: 15px;
+        }
+      }
     }
     .inner {
       @include display(flex);
