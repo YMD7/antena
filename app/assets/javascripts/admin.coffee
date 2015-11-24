@@ -138,7 +138,31 @@ ready = ->
   # -- + talk title setter + -------------
   $('#draft_contents .inner.talk .talk-title .comment .sentence textarea').on 'focusout', ->
     $('#draft_contents .row .inner.talk .talk-body #title h1').text($(this).text())
-  
+
+  # -- + insert talk elements + -------------
+  $('#body .insert-element button').on 'click', ->
+    event.preventDefault()
+    insertType = $(this).attr('class')
+
+    if insertType is 'speak'
+      insertSpeakElement $(this)
+
+    if insertType is 'header'
+      insertHeaderElement $(this)
+
+  insertSpeakElement = (btn) ->
+    container = btn.parent().prev()
+    lastPerson = container.find('div:last-child').attr('class')
+    targetPerson = if lastPerson is 'first-person' then 'second-person' else 'first-person'
+    el = container.find(".#{targetPerson}").first().clone()
+    el.find('textarea').text('テキストを入力')
+    el.appendTo(container).hide().fadeIn 300
+    
+  insertHeaderElement = (btn) ->
+    container = btn.parent().prev()
+    el = container.find('input').first().clone()
+    el.val('見出しを入力').appendTo(container).hide().fadeIn 300
+    
   # -- + utils + -------------
   getPostType = ->
     $('#draft_contents .row > ul > li.current').attr('class').split(' ')[0]

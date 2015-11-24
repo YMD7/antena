@@ -67,6 +67,7 @@ header {
             border-left: 3px solid #000;
             background: #2d2d2d;
             padding: 0.9em 1.4em;
+            font-family: $jp_gothic;
             font-size: 13px;
             color: #999;
 
@@ -129,8 +130,9 @@ header {
       background: #eee;
       padding: 20px;
 
-      h2 {
+      > h2 {
         padding: 0 0 20px;
+        font-family: $jp_gothic;
         font-size: 28px;
 
         .anc {
@@ -663,9 +665,31 @@ header {
               position: absolute;
               display: block;
             }
+          } // .container
+          .insert-element {
+            padding-bottom: 40px;
+            text-align: center;
+
+            button {
+              border: none;
+              background: #aaa;
+              width: 200px;
+              height: 40px;
+              margin: 0 10px;
+              color: #eee;
+              font-size: 14px;
+              @include transition(all 0.1s linear);
+
+              > i {
+                margin-right: 0.4em;
+              }
+              &:hover, &:focus {
+                background-color: #345;
+              }
+            }
           }
-        }
-      }
+        } // #body
+      } // .talk-body
     } // .inner.talk > form
   } // .row
 } // #draft_contents
@@ -857,7 +881,7 @@ header {
           #body {
             .container {
               max-width: 800px;
-              padding: 80px 0;
+              padding: 80px 0 40px;
 
               input[type="text"] {
                 border: 1px solid transparent;
@@ -930,10 +954,10 @@ header {
                   text-align: center;
                 }
               }
-            }
-          }
-        }
-      }
+            } // .container
+          } // #body
+        } // .talk-body
+      } // .inner.talk > form
       .controls {
         background: #444;
         
