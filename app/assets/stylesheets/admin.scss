@@ -174,6 +174,8 @@ header {
     @include justify-content(flex-start);
     @include align-items(stretch);
     @include flex-direction(row);
+
+    padding-top: 30px;
   }
 }
 .local-menu {
@@ -250,8 +252,6 @@ header {
 // -- + desktop + -------------
 @include media($desktop) {
   #main.index {
-    padding-top: 30px;
-
     #contents_field {
       #posts {
         background: #fff;
