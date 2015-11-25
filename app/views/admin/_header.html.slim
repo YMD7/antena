@@ -1,0 +1,20 @@
+header
+  .wrapper
+    .left
+      #user
+        .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+    .right
+  .inner
+    #logo
+      = image_tag "antena-kun.png", :class => 'left'
+      = link_to root_url
+        = image_tag "text_logo.svg"
+      = image_tag "antena-kun.png", :class => 'right'
+- if flash.keys.length > 0
+  .flash
+    - if flash.keys.include?('notice')
+      p.notice
+        = notice
+    - if flash.keys.include?('alert')
+      p.alert
+        = alert
