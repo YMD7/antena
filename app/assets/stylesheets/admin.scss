@@ -707,6 +707,27 @@ header {
         padding: 30px;
 
         .comment {
+          .icons {
+            > .icon {
+              display: table;
+              
+              &:hover {
+                cursor: pointer;
+                
+                &:after {
+                  display: table-cell;
+                  background: rgba(5,20,60,0.7);
+                  @include to_icon($icon_size);
+                  padding-bottom: 4px;
+                  content: '+';
+                  color: rgba(155,170,250,1);
+                  font-size: 50px;
+                  text-align: center;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
           .sentence {
             @include flex(1);
 
