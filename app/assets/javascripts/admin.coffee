@@ -28,6 +28,10 @@ ready = ->
       .toggleClass('fa-angle-down')
     $(this).find("ul > li > a.#{childClass}").addClass('current')
 
+  # -- + profile menu + -------------
+  $('#user > .icon').on 'click', ->
+    $(this).next().fadeToggle(100)
+
   # ==========================================================================
   #
   #  ++ posts new ++

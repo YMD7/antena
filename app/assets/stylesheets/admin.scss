@@ -45,6 +45,7 @@ header {
       
       position: absolute;
       left: 0;
+      z-index: 1;
       width: 100%;
       height: 90px;
 
@@ -57,13 +58,83 @@ header {
           @include align-items(center);
           @include flex-direction(row);
 
+          @include texture(100deg, #222, #1c1c1c, 77, 0);
           width: 100%;
           height: 120px;
-          padding: 0 10px;
+          @include transition(all 0.1s linear);
 
-          .icon {
-            @include to_icon($icon_size * 0.80);
-            @include filter(grayscale(95%) contrast(105%));
+          .nameplate {
+            @include display(flex);
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-direction(column);
+
+            width: 62%;
+            max-width: 150px;
+            padding: 0 10px;
+
+            span {
+              color: #777;
+              font-family: $jp_gothic;
+              font-size: 12px;
+              text-align: center;
+              line-height: 150%;
+
+              &.name {
+                color: #bbb;
+                font-size: 16px;
+              }
+            }
+          }
+          > .icon {
+            cursor: pointer;
+            @include to_icon($icon_size * 0.60);
+            @include transition(all 0.2s linear);
+
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+          > .profile-menu {
+            @include display(flex);
+            @include justify-content(center);
+            @include align-items(stretch);
+            @include flex-direction(column);
+
+            position: absolute;
+            top: 25px;
+            z-index: 100;
+            border-radius: 1px;
+            background: #345;
+            width: 150px;
+            height: 70px;
+            margin-left: 10px;
+            padding: 4px;
+
+            > a {
+              @include flex(1);
+
+              @include display(flex);
+              @include justify-content(center);
+              @include align-items(center);
+              @include flex-direction(row);
+
+              border-radius: 2px;
+              background: lighten(#345, 10%);
+              margin-bottom: 3px;
+              color: #aaa;
+              font-family: $jp_gothic;
+              font-size: 12px;
+              text-align: center;
+              @include transition(all 0.2s linear);
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+              &:hover {
+                background: darken(#345, 5%);
+              }
+            }
           }
         }
       }
@@ -73,6 +144,8 @@ header {
       }
     }
     .inner {
+      z-index: 0;
+
       #logo {
         margin: 0 auto;
       }
