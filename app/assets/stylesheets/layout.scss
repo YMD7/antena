@@ -238,7 +238,7 @@ header {
             @include animation(dash_to_right 1.5s $ease-in-out-circ);
           }
         }
-        a {
+        > a {
           margin: 0 auto;
         }
       }

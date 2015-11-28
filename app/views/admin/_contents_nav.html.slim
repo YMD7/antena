@@ -24,6 +24,10 @@ nav#contents_nav
           = link_to admin_users_url, :class => 'users' do
             = fa_icon 'circle-o'
             | メンバー一覧
+        li
+          = link_to new_admin_user_url, :class => 'users-new' do
+            = fa_icon 'circle-o'
+            | メンバー登録
     li.datas
       = link_to '' do
         = fa_icon 'newspaper-o'
