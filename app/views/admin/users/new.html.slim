@@ -24,18 +24,20 @@ section#main.new-user
                     input type="text"
                 .role
                   .input
-                    label 権限
-                    input type="radio" name="role" value="author" 投稿者
-                    input type="radio" name="role" value="administrator" 管理者
+                    label
+                      input type="radio" name="role" value="author" checked="" 投稿者
+                    label
+                      input type="radio" name="role" value="administrator" 管理者
               .option
-                .name-jp
+                span オプション
+                .name.jp
                   .input
                     label 名前（姓）
                     input type="text"
                   .input
                     label 名前（名）
                     input type="text"
-                .name-en
+                .name.en
                   .input
                     label Name（姓）
                     input type="text"
