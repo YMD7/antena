@@ -1,4 +1,4 @@
-section#main.users
+section#main.new-user
   == render 'admin/contents_nav'
   section#contents_field
     h2
@@ -10,4 +10,53 @@ section#main.users
           a
             = fa_icon "tag"
             | ほげ
-    #users
+    #user
+      .container
+        = form_for @user do |f|
+          .row
+            .inputs
+              h3 メンバー登録
+              .required
+                span 必須
+                .mail
+                  .input
+                    label メールアドレス
+                    input type="text"
+                .role
+                  .input
+                    label 権限
+                    input type="radio" name="role" value="author" 投稿者
+                    input type="radio" name="role" value="administrator" 管理者
+              .option
+                .name-jp
+                  .input
+                    label 名前（姓）
+                    input type="text"
+                  .input
+                    label 名前（名）
+                    input type="text"
+                .name-en
+                  .input
+                    label Name（姓）
+                    input type="text"
+                  .input
+                    label Name（名）
+                    input type="text"
+                .affi
+                  .input
+                    label 所属
+                    input type="text"
+            .preview
+              h3 プレビュー
+          .bottom-menu
+            a メール送信
+      .controls
+        ul
+          li
+            a
+              = fa_icon 'clone'
+              | コピーして追加
+          li
+            a
+              = fa_icon 'plus'
+              | 新規追加

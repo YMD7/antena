@@ -35,7 +35,7 @@ ul, li {
   margin: 0;
   padding: 0;
 }
-input, textarea {
+input[type="text"], textarea {
   @include appearance(none);
   @include user-select(none);
   outline: none;

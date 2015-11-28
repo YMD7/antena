@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # -- resources --
   resources :posts
+  resources :users
 
   # -- devise --
   devise_for :users, controllers: {

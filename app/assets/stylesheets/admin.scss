@@ -1273,4 +1273,152 @@ header {
 
 
 
+// ==========================================================================
+//
+//  ++ user new ++
+//
+// ==========================================================================
+
+// -- + common + -------------
+#main.new-user {
+  #user {
+    @include display(flex);
+    @include justify-content(flex-start);
+    @include align-items(flex-start);
+    @include flex-direction(column);
+
+    background: #fff;
+    box-shadow: 0 1px 1px #ddd;
+    font-family: $jp_gothic;
+
+    .container {
+      @include display(flex);
+      @include justify-content(flex-start);
+      @include align-items(flex-start);
+      @include flex-direction(row);
+
+      width: 100%;
+
+      form {
+        width: 100%;
+        
+        .row {
+          @include display(flex);
+          @include justify-content(flex-start);
+          @include align-items(flex-start);
+          @include flex-direction(row);
+
+
+          .inputs {
+            @include flex(1);
+
+            h3 {}
+            .input {
+              @include display(flex);
+              @include justify-content(flex-start);
+              @include align-items(stretch);
+              @include flex-direction(column);
+            }
+            .required {
+              > span {}
+            }
+          } // .inputs
+          .preview {
+            @include flex(1);
+          } // .preview
+        } // .row
+      } // form
+    } // .container
+  } // #user
+} // #main.new-user
+// common
+
+// -- + desktop + -------------
+@include media($desktop) {
+  #main.new-user {
+    #user {
+      padding: 20px 10px;
+
+      .container {
+        form {
+          .row {
+            .inputs {
+              margin-right: 20px;
+              
+              h3 {}
+              .input {
+
+              }
+              .required {
+                > span {}
+              }
+              .option {
+
+              }
+            }
+            .preview {
+
+            } // .preview
+          } // .row
+        } // form
+      } // .container
+    } // #user
+  } // #main.new-user
+}
+// desktop
+
+// -- + mobile + -------------
+@include media($mobile) {
+  #main.new-user {
+    #user {
+      .container {
+        form {
+          .row {
+            .inputs {
+              h3 {}
+              .input {
+
+              }
+              .required {
+                > span {}
+              }
+              .option {
+
+              }
+            }
+            .preview {
+
+            } // .preview
+          } // .row
+        } // form
+      } // .container
+    } // #user
+  } // #main.new-user
+}
+// mobile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------
 } // body.admin
