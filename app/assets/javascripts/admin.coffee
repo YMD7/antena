@@ -30,6 +30,7 @@ ready = ->
 
   # -- + profile menu + -------------
   $('#user > .icon').on 'click', ->
+    $(this).toggleClass('active')
     $(this).next().fadeToggle(100)
 
   # ==========================================================================
