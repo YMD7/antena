@@ -21,7 +21,7 @@ section#main.new-user
                 .mail
                   .input
                     label メールアドレス
-                    input type="text"
+                    input type="text" autofocus=""
                 .role
                   .input
                     label
@@ -60,9 +60,9 @@ section#main.new-user
         ul
           li
             a
-              = fa_icon 'clone'
-              | コピーして追加
+              = fa_icon 'plus'
+              | フィールドを新規追加
           li
             a
-              = fa_icon 'plus'
-              | 新規追加
+              = fa_icon 'clone'
+              | コピーして追加
