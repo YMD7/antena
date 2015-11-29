@@ -1107,11 +1107,15 @@ header {
           } // #body
         } // .talk-body
       } // .inner.talk > form
-      .controls {
+      .bottom-menu {
         background: #444;
+        padding: 8px 10px;
         
         ul {
+          @include display(flex);
           @include justify-content(flex-end);
+          @include align-items(flex-start);
+          @include flex-direction(row);
 
           li {
             a {
@@ -1123,7 +1127,8 @@ header {
               position: relative;
               border-radius: 4px;
               background: #005a70;
-              padding: 10px;
+              padding: 10px 10px 10px 16px;
+              font-family: $jp_gothic;
               color: #eee;
               font-size: 12px;
 
@@ -1150,8 +1155,9 @@ header {
               i {
                 position: relative;
                 left: -2px;
-                font-size: 18px;
-
+                margin: -1px 6px 0 -2px;
+                font-size: 14px;
+                
                 @include transition(all 0.1s linear);
                 @include transform(rotate(5deg));
               }
@@ -1452,6 +1458,55 @@ header {
               }
             } // .preview
           } // .row
+          .bottom-menu {
+            background: #444;
+            padding: 8px 10px;
+        
+            ul {
+              @include display(flex);
+              @include justify-content(flex-end);
+              @include align-items(flex-start);
+              @include flex-direction(row);
+
+              li {
+                a {
+                  @include display(flex);
+                  @include justify-content(center);
+                  @include align-items(center);
+                  @include flex-direction(row);
+
+                  position: relative;
+                  border-radius: 4px;
+                  background: #005a70;
+                  min-width: 86px;
+                  padding: 10px 10px 10px 16px;
+                  color: #eee;
+                  font-family: $jp_gothic;
+                  font-size: 12px;
+
+                  &:hover {
+                    border-radius: 0;
+                    background: #00c0ef;
+
+                    i {
+                      left: -6px;
+                      
+                      @include transform(rotate(-15deg));
+                    }
+                  }
+                  i {
+                    position: relative;
+                    left: -2px;
+                    margin: -1px 6px 0 -2px;
+                    font-size: 14px;
+
+                    @include transition(all 0.1s linear);
+                    @include transform(rotate(5deg));
+                  }
+                }
+              }
+            }
+          } // .bottom-menu
         } // form
       } // .container
     } // #user
