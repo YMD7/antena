@@ -21,7 +21,7 @@ section#main.new-user
                 .mail
                   .input
                     label メールアドレス
-                    input type="text" autofocus=""
+                    input type="text" autofocus="" value=""
                 .role
                   .input
                     label
@@ -50,6 +50,7 @@ section#main.new-user
                     input type="text"
             .preview
               h3 プレビュー
+              = @mailer
           .bottom-menu
             ul
               li

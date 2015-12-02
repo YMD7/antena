@@ -1399,6 +1399,8 @@ header {
           } // .inputs
           .preview {
             @include flex(1);
+
+            color: #999;
           } // .preview
         } // .row
       } // form
