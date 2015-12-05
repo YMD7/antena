@@ -1399,8 +1399,6 @@ header {
           } // .inputs
           .preview {
             @include flex(1);
-
-            color: #999;
           } // .preview
         } // .row
       } // form
@@ -1480,12 +1478,26 @@ header {
               }
             }
             .preview {
-              background: #333;
+              background: #f0f0f0;
 
               h3 {
                 padding: 10px 14px;
                 color: #999;
                 font-size: 14px;
+              }
+              > .body {
+                padding: 20px 14px;
+                > p {
+                  color: #444;
+                  font-family: $jp_gothic;
+                  font-size: 14px;
+                  line-height: 140%;
+
+                  > .mail, &.accept, > .url {
+                    color: #179;
+                    text-decoration: underline;
+                  }
+                }
               }
             } // .preview
           } // .row

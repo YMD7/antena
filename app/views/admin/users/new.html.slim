@@ -49,8 +49,30 @@ section#main.new-user
                     label 所属
                     input type="text"
             .preview
-              h3 プレビュー
-              = @mailer
+              h3 メール本文のプレビュー
+              .body
+                p.hello
+                  span.mail user@mail.example.com
+                  |  さん
+                br
+                p.someone-invited-you
+                  - @mailer["someone_invited_you"].split('#').each_with_index do |e, i|
+                    - if i === 1 then
+                      = content_tag :span, e, :class => 'url'
+                    - else
+                      = e
+                br
+                p.accept
+                  = @mailer["accept"]
+                br
+                p.ignore
+                  - len = @mailer["ignore"].split('<br />').length
+                  - @mailer["ignore"].split('<br />').each_with_index do |e, i|
+                    - unless i === len then
+                      = e
+                      br
+                    - else
+                      = e
           .bottom-menu
             ul
               li
