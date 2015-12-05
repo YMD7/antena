@@ -1398,6 +1398,16 @@ header {
           } // .inputs
           .preview {
             @include flex(1);
+
+            background: #222;
+
+            > .body {
+              background: image-url("mail_stripe.png");
+
+              > .inner {
+                background-color: #f0f0f0;
+              }
+            }
           } // .preview
         } // .row
       } // form
@@ -1477,24 +1487,45 @@ header {
               }
             }
             .preview {
-              background: #f0f0f0;
-
               h3 {
-                padding: 10px 14px;
+                padding: 10px 0;
                 color: #999;
-                font-size: 14px;
+                font-family: $jp_gothic;
+                font-size: 13px;
               }
               > .body {
-                padding: 20px 14px;
-                > p {
-                  color: #444;
-                  font-family: $jp_gothic;
-                  font-size: 14px;
-                  line-height: 140%;
+                margin-top: 2px;
+                padding: 5px;
 
-                  > .mail, &.accept, > .url {
-                    color: #179;
-                    text-decoration: underline;
+                > .inner {
+                  background: #fff;
+                  padding: 22px 32px 32px;
+
+                  &::before {
+                    content: '';
+                    display: block;
+                    position: relative;
+                    top: 0;
+                    right: 0;
+                    border: 2px solid #111;
+                    background: image-url("antena-kun.png") no-repeat center center;
+                    background-size: 75%;
+                    width: 50px;
+                    height: 50px;
+                    margin-bottom: 20px;
+                    padding: 6px;
+                    @include filter(grayscale(100%) invert(60%));
+                  }
+                  > p {
+                    color: #444;
+                    font-family: $jp_gothic;
+                    font-size: 12px;
+                    line-height: 140%;
+
+                    > .mail, &.accept, > .url {
+                      color: #179;
+                      text-decoration: underline;
+                    }
                   }
                 }
               }
