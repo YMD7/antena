@@ -190,17 +190,38 @@ ready = ->
       btn.siblings('input[type="text"]').css({color: '#eee'})
 
   errorEffect = (target) ->
-    orgColor = target.css('color')
+    orgBgColor = target.css('backgroundColor')
+    orgColor   = target.css('color')
     target.stop().css {
       backgroundColor: 'rgba(235,25,25,0.9)',
       color: '#eee'
     }
     setTimeout ->
       target.animate {
-        backgroundColor: 'rgba(34,34,34,0.2)',
+        backgroundColor: orgBgColor,
         color: orgColor
-      }, 200, 'linear'
-    , 2000
+      }, 500, 'linear'
+    , 800
+
+  # ==========================================================================
+  #
+  #  ++ users new ++
+  #
+  # ==========================================================================
+
+  # -- + change email address of preview + -------------
+  mailInput = $('#main.new-user #user .inputs > .required .mail input')
+  mailInput.on 'focusout', ->
+    address = $(this).val()
+    if isMailAddress address
+      $(this).parents('.inputs').next('.preview').find('.body p.hello .mail').text(address)
+    else if address isnt ''
+      errorEffect $(this)
+
+  # -- + utils + -------------
+  isMailAddress = (address) ->
+    address_ck_reg = /^[A-Za-z0-9]+[\w-]+@[\w\.-]+\.\w{2,}$/
+    address_ck_reg.test address
 
 if location.pathname.match('admin')
   $(document).ready(ready)
