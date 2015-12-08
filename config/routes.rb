@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   # -- resources --
   resources :posts
-  resources :users
+  # resources :users
+  get  'users', to: 'users#new', as: :new_user
+  post 'users', to: 'admin/users#create'
 
   # -- devise --
   devise_for :users, controllers: {

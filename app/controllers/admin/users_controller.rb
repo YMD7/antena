@@ -9,4 +9,7 @@ class Admin::UsersController < ApplicationController
     @mailer = YAML.load(File.open("config/locales/devise_invitable.ja.yml"))["ja"]["devise"]["mailer"]["invitation_instructions"]
     @mailer["someone_invited_you"].gsub!(/%\{url\}/, "\##{root_url}\#")
   end
+
+  def create
+  end
 end

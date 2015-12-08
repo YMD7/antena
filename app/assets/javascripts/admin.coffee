@@ -218,6 +218,10 @@ ready = ->
     else if address isnt ''
       errorEffect $(this)
 
+  # -- + submit mail + -------------
+  $('#main.new-user .bottom-menu').on 'click', ->
+    console.log $(this).parent('form').submit()
+
   # -- + utils + -------------
   isMailAddress = (address) ->
     address_ck_reg = /^[A-Za-z0-9]+[\w-]+@[\w\.-]+\.\w{2,}$/
