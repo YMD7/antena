@@ -21,33 +21,33 @@ section#main.new-user
                 .mail
                   .input
                     label メールアドレス
-                    input type="email" autofocus="" value=""
+                    input type="email" name="mail" autofocus="" value=""
                 .role
                   .input
                     label
-                      input type="radio" name="role" value="author" checked="" 投稿者
+                      input type="radio" name="role_author" value="author" checked="" 投稿者
                     label
-                      input type="radio" name="role" value="administrator" 管理者
+                      input type="radio" name="role_admin" value="administrator" 管理者
               .option
                 span オプション
                 .name.jp
                   .input
                     label 名前（姓）
-                    input type="text"
+                    input type="text" name="family_name_jp"
                   .input
                     label 名前（名）
-                    input type="text"
+                    input type="text" name="first_name_jp"
                 .name.en
                   .input
                     label Name（姓）
-                    input type="text"
+                    input type="text" name="family_name_en"
                   .input
                     label Name（名）
-                    input type="text"
+                    input type="text" name="first_name_jp"
                 .affi
                   .input
                     label 所属
-                    input type="text"
+                    input type="text" name="affiliate"
             .preview
               h3 メール本文のプレビュー
               .body

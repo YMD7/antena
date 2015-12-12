@@ -224,7 +224,7 @@ ready = ->
 
   # -- + utils + -------------
   isMailAddress = (address) ->
-    address_ck_reg = /^[A-Za-z0-9]+[\w-]+@[\w\.-]+\.\w{2,}$/
+    address_ck_reg = /^[A-Za-z0-9\.]+[\w-]+@[\w\.-]+\.\w{2,}$/
     address_ck_reg.test address
 
 if location.pathname.match('admin')

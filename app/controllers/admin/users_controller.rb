@@ -11,5 +11,9 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
+    mail = params["mail"]
+    role_author = params["role_author"]
+    User.invite!(:email => mail)
+    # redirect_to :action => 'new'
   end
 end
