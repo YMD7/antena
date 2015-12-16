@@ -40,7 +40,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # devise
-  config.action_mailer.default_url_options = { host: 'http://local.test.com:8082/' }
+  config.action_mailer.default_url_options = { host: 'dev.ofutari.us' }
 
   # mail setting
   config.action_mailer.raise_delivery_errors = true
