@@ -11,7 +11,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         :invitation_token => invitation_token,
         :provider         => auth.provider,
         :uid              => auth.uid,
-        :username         => auth.info.name
+        :username         => auth.info.name,
+        :first_name_en    => auth.info.first_name,
+        :family_name_en   => auth.info.last_name
         # info.image でアイコン画像のURL
       )
     end
