@@ -1,6 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    # binding.pry_remote
+    binding.pry_remote
     # invitation_token をURLから取得
     invitation_token = get_token(request.env["omniauth.origin"])
 
@@ -18,7 +18,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     # providerとuidでuserレコードを検索
     user = User.from_omniauth(request.env["omniauth.auth"])
-    # binding.pry_remote
 
     # 対象ユーザーがuserレコードにあったか
     if user

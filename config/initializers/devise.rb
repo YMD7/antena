@@ -282,7 +282,9 @@ Devise.setup do |config|
   config.sign_out_via = :get
 
   # ==> OmniAuth
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'],
+                  :scope => 'public_profile',
+                  :info_fields => 'name, first_name, last_name'
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
