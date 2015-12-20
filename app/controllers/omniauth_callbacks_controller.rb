@@ -1,7 +1,24 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
+    # binding.pry_remote
+    # invitation_token をURLから取得
+    invitation_token = get_token(request.env["omniauth.origin"])
+
+    # メンバー登録ページから来ていたら、ユーザーを作成（招待の承認）
+    if invitation_token
+      auth = request.env["omniauth.auth"]
+      User.accept_invitation!(
+        :invitation_token => invitation_token,
+        :provider         => auth.provider,
+        :uid              => auth.uid,
+        :username         => auth.info.name
+        # info.image でアイコン画像のURL
+      )
+    end
+
     # providerとuidでuserレコードを検索
     user = User.from_omniauth(request.env["omniauth.auth"])
+    # binding.pry_remote
 
     # 対象ユーザーがuserレコードにあったか
     if user
@@ -14,5 +31,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash.notice = "ログインに失敗しました"
       redirect_to gate_url
     end
+  end
+
+  def get_token(url)
+    url.split('invitation_token=')[1]
   end
 end
