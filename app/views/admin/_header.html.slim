@@ -10,8 +10,7 @@ header
         .profile-menu style="display: none;"
           a.edit
             | プロフィール編集
-          a.logout
-            | ログアウト
+          = link_to 'ログアウト', destroy_user_session_path
     .right
   .inner
     #logo

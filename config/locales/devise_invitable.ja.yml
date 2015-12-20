@@ -13,8 +13,8 @@ ja:
         header: "Send invitation"
         submit_button: "Send an invitation"
       edit:
-        header: "Set your password"
-        submit_button: "Set my password"
+        header: "メンバー登録"
+        submit_button: "パスワードを設定"
     mailer:
       invitation_instructions:
         subject: "Antenaメンバーへのご招待"

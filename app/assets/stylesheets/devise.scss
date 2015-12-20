@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+// devise.scss
+
+// ==========================================================================
+//
+//  ++ invitation edit ++
+//
+// ==========================================================================
+
+// --------------------------------
+//                     + header +
+// --------------------------------
+
+// -- + common + -------------
+#invitations_edit {
+  width: 55%;
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  .circ {
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-direction(column);
+
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 500px;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    font-family: $jp_gothic;
+    @include transition(all 0.2s linear);
+
+    &:hover {
+      border-color: #3a5795;
+    }
+    .fb {
+      @include display(flex);
+      @include justify-content(center);
+      @include align-items(center);
+      @include flex-direction(column);
+
+      background-color: #b8c6e3;
+      width: 100%;
+      text-align: center;
+
+      strong {
+        margin-bottom: 1em;
+      }
+      > a {
+        display: inline-block;
+        border: 1px solid #3a5795;
+        background-color: #fff;
+        margin-bottom: 11px;
+        padding: 2% 4%;
+        font-family: $lucida-grande;
+
+        i {
+          margin-right: 10px;
+        }
+      }
+      > span {
+        display: block;
+        font-size: 12px;
+      }
+    } // .fb
+    > span {
+      font-size: 14px;
+    }
+    form {
+      border-top: 1px solid #ddd;
+      width: 100%;
+      margin-top: 4px;
+      padding: 2% 0;
+      font-size: 13px;
+      text-align: center;
+
+      > p {
+        margin-bottom: 6px;
+        font-family: $jp_gothic;
+
+        > input[type="password"] {
+          width: 40%;
+        }
+      }
+    }
+  } // .circ
+}
+// common
+
+// -- + desktop + -------------
+@include media($desktop) {
+  #invitations_edit {
+    margin-top: 8%;
+
+    .circ {
+      margin-top: 16px;
+
+      .fb {
+        margin: 12% 0 8%;
+        padding: 10% 0;
+      }
+    }
+  } // #invitations_edit
+}
+// desktop
+
+// -- + mobile + -------------
+@include media($mobile) {
+}
+// mobile

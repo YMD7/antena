@@ -1,0 +1,27 @@
+div id=controller.controller_name+'_'+controller.action_name
+  h2
+    = t 'devise.invitations.edit.header'
+  .circ
+    .fb
+      strong Facebookで登録すると便利です！
+      = link_to user_omniauth_authorize_path(:facebook) do
+        = fa_icon "facebook-official"
+        span Login with Facebook
+      span
+        | Antena Inc. は、Facebookの情報をユーザー認証だけに利用します。
+        br
+        | 勝手にタイムラインへ投稿することはありません。
+    span Facebookがダメなら...
+    = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f|
+      = devise_error_messages!
+      = f.hidden_field :invitation_token
+      p
+        = f.label :password, 'パスワード'
+        br
+        = f.password_field :password
+      p
+        = f.label :password_confirmation, '確認用'
+        br
+        = f.password_field :password_confirmation
+      p
+        = f.submit t("devise.invitations.edit.submit_button")
