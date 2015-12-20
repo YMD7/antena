@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103025858) do
+ActiveRecord::Schema.define(version: 20151220162956) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 20151103025858) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.string   "family_name_jp"
+    t.string   "first_name_jp"
+    t.string   "family_name_en"
+    t.string   "first_name_en"
+    t.string   "affiliate"
+    t.string   "role"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
