@@ -4,8 +4,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # invitation_token をURLから取得
     invitation_token = get_token(request.env["omniauth.origin"])
 
-    # メンバー登録ページから来ていたら、ユーザーを作成（招待の承認）
-    if invitation_token
+    # invitation_token があり、かつユーザーが存在していない場合、ユーザーを作成する
+    if invitation_token && User.from_omniauth(request.env["omniauth.auth"]).nil?
       auth = request.env["omniauth.auth"]
       User.accept_invitation!(
         :invitation_token => invitation_token,
