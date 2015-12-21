@@ -14,7 +14,7 @@ ja:
         submit_button: "Send an invitation"
       edit:
         header: "メンバー登録"
-        submit_button: "パスワードを設定"
+        submit_button: "パスワードで登録"
     mailer:
       invitation_instructions:
         subject: "Antenaメンバーへのご招待"
