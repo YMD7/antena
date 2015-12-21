@@ -3,7 +3,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   require "FileUtils"
 
   def facebook
-    binding.pry_remote
+    # binding.pry_remote
     # invitation_token をURLから取得
     invitation_token = get_token(request.env["omniauth.origin"])
 
@@ -28,7 +28,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # 対象ユーザーがuserレコードにあったか
     if user
       # ログインに成功
-      flash.notice = "ログインしました"
+
       sign_in user, :event => :authentication
       redirect_to gate_url
     else

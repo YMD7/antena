@@ -4,7 +4,7 @@
 
 // ==========================================================================
 //
-//  ++ invitation edit ++
+//  ++ invitation edit, update ++
 //
 // ==========================================================================
 
@@ -13,7 +13,8 @@
 // --------------------------------
 
 // -- + common + -------------
-#invitations_edit {
+#invitations_edit,
+#invitations_update {
   width: 55%;
   margin: 0 auto;
 
@@ -80,13 +81,29 @@
       font-size: 13px;
       text-align: center;
 
-      > p {
+      #error_explanation {
+        background-color: #fcc;
+        padding: 4px 0;
+        font-size: 12px;
+
+        h2 {
+          font-family: $jp_gothic;
+          font-size: 12px;
+        }
+      }
+      > div, > p {
         margin-bottom: 6px;
         font-family: $jp_gothic;
 
         > input[type="password"] {
           width: 40%;
         }
+      }
+      > .field_with_errors {
+        margin-bottom: 0;
+      }
+      > br {
+        display: none;
       }
     }
   } // .circ
@@ -95,7 +112,8 @@
 
 // -- + desktop + -------------
 @include media($desktop) {
-  #invitations_edit {
+  #invitations_edit,
+  #invitations_update {
     margin-top: 8%;
 
     .circ {
