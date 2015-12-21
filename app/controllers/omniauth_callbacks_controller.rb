@@ -1,4 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  require "open-uri"
+  require "FileUtils"
+
   def facebook
     binding.pry_remote
     # invitation_token をURLから取得
@@ -16,6 +19,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         :family_name_en   => auth.info.last_name
         # info.image でアイコン画像のURL
       )
+      save_profile_icon(auth)
     end
 
     # providerとuidでuserレコードを検索
@@ -36,5 +40,21 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def get_token(url)
     url.split('invitation_token=')[1]
+  end
+
+  def save_profile_icon(auth)
+    username = auth.info.name.gsub(' ', '_')
+    icon_uri = auth.info.image
+    icon_ext = File.extname(icon_uri)
+    file_dir = "/app/assets/images/user_icons/"
+    file_path = file_dir + username + icon_ext
+
+    FileUtils.mkdir_p(file_dir) unless FileTest.exist?(file_dir)
+
+    open(file_path, 'wb') do |icon_file|
+      open(icon_uri) do |icon_data|
+        icon_file.write(icon_data.read)
+      end
+    end
   end
 end
