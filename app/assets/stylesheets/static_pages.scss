@@ -576,6 +576,7 @@ footer {
     @include justify-content(center);
     @include align-items(center);
 
+    overflow: hidden;
     border: 1px solid #ddd;
     border-radius: 500px;
     width: 500px;
@@ -597,7 +598,7 @@ footer {
         margin-right: 10px;
       }
     }
-  }
+  } // .login, .logout
 }
 
 // -- + desktop + -------------
@@ -610,6 +611,41 @@ footer {
         margin-bottom: 50px;
         font-size: 32px;
       }
+    }
+    .login {
+      padding-top: 5%;
+
+      .pass-login {
+        background-color: #eee;
+        width: 100%;
+        margin-top: 9%;
+        padding: 4% 6%;
+        text-align: center;
+
+        > span {
+          font-family: $jp_gothic;
+        }
+        > form {
+          width: 60%;
+          margin: 4% auto 0;
+          font-family: $jp_gothic;
+          font-size: 13px;
+          text-align: left;
+
+          input[type="email"],
+          input[type="password"] {
+            border: 1px solid #ddd;
+            width: 100%;
+            margin-bottom: 8px;
+            padding: 4px 6px;
+            font-size: 13px;
+
+            &:focus {
+              border-color: #3a5795;
+            }
+          }
+        }
+      } // .pass-login
     }
   }
 }

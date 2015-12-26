@@ -28,8 +28,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # 対象ユーザーがuserレコードにあったか
     if user
       # ログインに成功
-
       sign_in user, :event => :authentication
+      flash.notice = I18n.t "devise.sessions.signed_in"
       redirect_to gate_url
     else
       # ログインに失敗し、サインイン画面に遷移

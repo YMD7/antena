@@ -42,7 +42,7 @@ ja:
       updated: "Your account has been updated successfully."
     sessions:
       signed_in: "ログインしました！"
-      signed_out: "ログアウトしました！また会いましょう〜"
+      signed_out: "ログアウトしました！また会いましょう！"
       already_signed_out: "Signed out successfully."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
