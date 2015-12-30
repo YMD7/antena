@@ -3,10 +3,10 @@ header
     .left
       #user
         .nameplate
-          span.role 管理者
-          span.name 尾崎 渉
-          span.affi Antena Inc.
-        .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+          span.role =@role
+          span.name =if @fullname_jp.nil? then @username else @fullname_jp
+          span.affi =@affiliate
+        .icon style="background-image:url('/assets/user_icons/#{@icon_filename}.jpg');"
         .profile-menu style="display: none;"
           a.edit
             | プロフィール編集

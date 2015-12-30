@@ -89,6 +89,8 @@ header {
           }
           > .icon {
             cursor: pointer;
+            position: relative;
+            z-index: 100;
             @include to_icon($icon_size * 0.60);
             @include transition(all 0.2s linear);
 
