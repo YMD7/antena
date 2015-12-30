@@ -3,14 +3,14 @@ class AdminController < ApplicationController
   before_action :authenticate_user!, :user
 
   def user
-    @user = current_user
+    @admin_user = current_user
 
     @role          = '権限未設定'
-    @role          = '管理者' if @user.role == 'admin'
-    @role          = '投稿者' if @user.role == 'author'
-    @username      = @user.username
-    @fullname_jp   = "#{@user.family_name_jp} #{@user.first_name_jp}" if @user.family_name_jp && @user.first_name_jp
-    @affiliate     = @user.affiliate
+    @role          = '管理者' if @admin_user.role == 'admin'
+    @role          = '投稿者' if @admin_user.role == 'author'
+    @username      = @admin_user.username
+    @fullname_jp   = "#{@admin_user.family_name_jp} #{@admin_user.first_name_jp}" if @admin_user.family_name_jp && @admin_user.first_name_jp
+    @affiliate     = @admin_user.affiliate
     @icon_filename = @username.gsub(' ', '_')
     file_dir  = "app/assets/images/user_icons/"
     file_path = file_dir + @icon_filename + ".jpg"
