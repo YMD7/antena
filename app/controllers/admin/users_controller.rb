@@ -19,7 +19,7 @@ class Admin::UsersController < AdminController
       username = params["family_name_en"] == '' ?
         params["first_name_en"] : params["family_name_en"]+' '+params["first_name_en"]
 
-      User.invite!(
+      new_user = User.invite!(
         :username       => username,
         :email          => params["mail"],
         :role           => params["role"],
@@ -29,8 +29,15 @@ class Admin::UsersController < AdminController
         :first_name_en  => params["first_name_en"],
         :affiliate      => params["affiliate"]
       )
+      make_default_icon(new_user)
       flash.notice = "#{params["mail"]} に招待メールを送信しました！"
       redirect_to :action => 'new'
     end
+  end
+
+  def make_default_icon(user)
+    id = user.id
+    icons_dir = 'app/assets/images/user_icons/'
+    FileUtils.cp("#{icons_dir}no_icon.jpg", "#{icons_dir}#{id}.jpg")
   end
 end

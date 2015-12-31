@@ -28,15 +28,14 @@ section#main.users
             .body
               a.menu-icon.close
                 = fa_icon "chevron-down"
-              - icon_filename = user_type == 'not-accepted' ? 'no_icon' : u.id
-              .icon style="background-image:url('/assets/user_icons/#{icon_filename}.jpg');"
+              .icon style="background-image:url('/assets/user_icons/#{u.id}.jpg');"
               .text
                 span.username = unless u.username == '' then u.username else 'ユーザーネーム未設定'
                 span.email = u.email
               .detail
                 .container.top
                   .outer
-                    .icon style="background-image:url('/assets/user_icons/#{icon_filename}.jpg');"
+                    .icon style="background-image:url('/assets/user_icons/#{u.id}.jpg');"
                   dl
                     .row
                       .row.id
@@ -77,4 +76,4 @@ section#main.users
                           = unless u.family_name_jp + u.first_name_jp == '' then "#{u.family_name_jp} #{u.first_name_jp}" else '未設定'
                       .column
                         dt Fullname
-                        dd = unless u.family_name_en + u.first_name_en == '' then "#{u.family_name_en} #{u.first_name_en}" else '未設定'
+                        dd = unless u.family_name_en + u.first_name_en == '' then "#{u.first_name_en} #{u.family_name_en}" else '未設定'

@@ -34,6 +34,7 @@ gem 'neat'
 gem "font-awesome-rails"
 gem 'jquery-easing-rails'
 gem 'jquery-color'
+gem 'open_uri_allow_redirect'
 group :development do
   gem 'html2slim'
 end

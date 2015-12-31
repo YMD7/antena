@@ -3,23 +3,21 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   require "FileUtils"
 
   def facebook
-    # binding.pry_remote
     # invitation_token をURLから取得
     invitation_token = get_token(request.env["omniauth.origin"])
 
     # invitation_token があり、かつユーザーが存在していない場合、ユーザーを作成する
     if invitation_token && User.from_omniauth(request.env["omniauth.auth"]).nil?
       auth = request.env["omniauth.auth"]
-      User.accept_invitation!(
+      new_user = User.accept_invitation!(
         :invitation_token => invitation_token,
         :provider         => auth.provider,
         :uid              => auth.uid,
         :username         => auth.info.name,
         :first_name_en    => auth.info.first_name,
         :family_name_en   => auth.info.last_name
-        # info.image でアイコン画像のURL
       )
-      save_profile_icon(auth)
+      save_profile_icon(auth, new_user)
     end
 
     # providerとuidでuserレコードを検索
@@ -42,18 +40,19 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     url.split('invitation_token=')[1]
   end
 
-  def save_profile_icon(auth)
+  def save_profile_icon(auth, user)
     username = auth.info.name.gsub(' ', '_')
-    icon_uri = auth.info.image
-    icon_ext = File.extname(icon_uri)
-    file_dir = "/app/assets/images/user_icons/"
-    file_path = file_dir + username + icon_ext
+    icon_uri = auth.info.image + "?type=large"
+    file_dir = "app/assets/images/user_icons/"
+    file_path = file_dir + user.id.to_s + '.jpg'
 
     FileUtils.mkdir_p(file_dir) unless FileTest.exist?(file_dir)
 
     open(file_path, 'wb') do |icon_file|
-      open(icon_uri) do |icon_data|
-        icon_file.write(icon_data.read)
+      OpenURI.allow_redirect do
+        open(icon_uri) do |icon_data|
+          icon_file.write(icon_data.read)
+        end
       end
     end
   end

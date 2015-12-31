@@ -133,6 +133,7 @@ GEM
     omniauth-twitter (1.2.1)
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
+    open_uri_allow_redirect (0.0.1)
     orm_adapter (0.5.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -254,6 +255,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-twitter
+  open_uri_allow_redirect
   pry-doc
   pry-rails
   pry-remote
