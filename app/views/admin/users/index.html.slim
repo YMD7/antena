@@ -13,22 +13,30 @@ section#main.users
     #users
       .inner
         - @users.each do |u|
-          .card
-            = content_tag :div, :class => "role #{u.role}" do
-              span = @role
+          - if u.invitation_accepted_at.nil? then user_type = 'not-accepted' else user_type = u.role
+          - if u == @admin_user ? card_class = 'card first' : card_class = 'card'
+          = content_tag :div, :class => card_class do
+            = content_tag :div, :class => "card-header #{user_type}" do
+              - if user_type == 'admin'
+                span 管理者
+              - if user_type == 'author'
+                span 投稿者
+              - if user_type == 'not-accepted'
+                span 承認待ち
               - if u == @admin_user
                 span.current YOU
             .body
               a.menu-icon.close
                 = fa_icon "chevron-down"
-              .icon style="background-image:url('/assets/user_icons/#{@icon_filename}.jpg');"
+              - icon_filename = user_type == 'not-accepted' ? 'no_icon' : u.id
+              .icon style="background-image:url('/assets/user_icons/#{icon_filename}.jpg');"
               .text
-                span.username = u.username
+                span.username = unless u.username == '' then u.username else 'ユーザーネーム未設定'
                 span.email = u.email
               .detail
                 .container.top
                   .outer
-                    .icon style="background-image:url('/assets/user_icons/#{@icon_filename}.jpg');"
+                    .icon style="background-image:url('/assets/user_icons/#{icon_filename}.jpg');"
                   dl
                     .row
                       .row.id
@@ -47,10 +55,10 @@ section#main.users
                             | 未連携
                     .column
                       dt 登録日
-                      dd = u.created_at.strftime('%Y/%m/%d %H:%M')
+                      dd = unless u.invitation_accepted_at.nil? then u.invitation_accepted_at.strftime('%Y/%m/%d %H:%M') else '招待承認待ち'
                     .column
                       dt 最終ログイン
-                      dd = u.last_sign_in_at.strftime('%Y/%m/%d %H:%M')
+                      dd = unless u.current_sign_in_at.nil? then u.current_sign_in_at.strftime('%Y/%m/%d %H:%M') else '--/--/-- --:--'
                 .container.bottom
                   dl
                     .column

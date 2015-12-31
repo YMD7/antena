@@ -1306,10 +1306,13 @@ header {
         border: 1px solid #ddd;
         @include transition(all 0.1s linear);
 
+        &.first {
+          @include order(-1);
+        }
         &:hover {
           border: 1px solid #aaa;
         }
-        .role {
+        .card-header {
           @include display(flex);
           @include justify-content(flex-start);
           @include align-items(center);
@@ -1328,7 +1331,12 @@ header {
             color: #676926;
           }
           &.author {
+            background-color: #AFB0DA;
+            color: #404280;
+          }
+          &.not-accepted {
             background-color: #AFD4DA;
+            color: #264969;
           }
           .current {
             background-color: #fff;
@@ -1483,11 +1491,10 @@ header {
 
         .card {
           min-width: 280px;
+          max-width: 320px;
+          margin: 0 0.5%;
 
-          &:not(:last-child) {
-            margin-right: 1%;
-          }
-          .role {
+          .card-header {
             height: 28px;
             padding: 4px 3%;
             font-size: 14px;
@@ -1501,7 +1508,7 @@ header {
               padding: 1px;
               font-size: 12px;
             }
-          } // .role
+          } // .card-header
           > .body {
             padding: 27% 0;
 
