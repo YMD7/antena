@@ -1,6 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   require "open-uri"
-  require "FileUtils"
+  require "fileutils"
 
   def facebook
     # invitation_token をURLから取得
