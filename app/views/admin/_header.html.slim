@@ -3,9 +3,9 @@ header
     .left
       #user
         .nameplate
-          span.role =@role
-          span.name =if @fullname_jp.nil? then @username else @fullname_jp
-          span.affi =@affiliate
+          span.role = @role
+          span.name = if @fullname_jp.nil? then @username else @fullname_jp
+          span.affi = @affiliate
         .icon style="background-image:url('/assets/user_icons/#{@icon_filename}.jpg');"
         .profile-menu style="display: none;"
           a.edit

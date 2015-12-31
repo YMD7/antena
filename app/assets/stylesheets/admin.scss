@@ -1283,6 +1283,336 @@ header {
 
 // ==========================================================================
 //
+//  ++ user index ++
+//
+// ==========================================================================
+
+// -- + common + -------------
+#main.users {
+  #users {
+    background: #fff;
+    box-shadow: 0 1px 1px #ddd;
+    font-family: $jp_gothic;
+
+    .inner {
+      @include display(flex);
+      @include justify-content(flex-start);
+      @include flex-direction(row);
+
+      .card {
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+        border-radius: 4px;
+        box-shadow: 0 0 0 1px #ddd;
+        @include transition(all 0.2s linear);
+
+        &:hover {
+          background-color: #eee;
+        }
+        .role {
+          @include display(flex);
+          @include justify-content(flex-start);
+          @include align-items(center);
+          @include flex-direction(row);
+
+          border-bottom: 1px solid #ddd;
+
+          // default
+          background-color: #ddd;
+          color: #333;
+
+          &.admin {
+            background-color: #D9DAAF;
+            color: #676926;
+          }
+          &.author {
+            background-color: #AFD4DA;
+          }
+          .current {
+            background-color: #fff;
+            border: 1px solid #dd4b39;
+            color: #dd4b39;
+            text-align: center;
+          }
+        }
+        > .body {
+          @include display(flex);
+          @include justify-content(center);
+          @include align-items(center);
+          @include flex-direction(column);
+
+          position: relative;
+
+          .text {
+            @include display(flex);
+            @include justify-content(flex-start);
+            @include align-items(center);
+            @include flex-direction(column);
+
+            font-family: 'Lato' sans-serif;
+            text-align: center;
+
+            .username {
+              font-weight: 700;
+            }
+            .email {
+              font-weight: 400;
+            }
+          }
+          .detail {
+            @include display(flex);
+            @include justify-content(flex-start);
+            @include align-items(flex-start);
+            @include flex-direction(column);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+
+            .container {
+              dl {
+                div {
+                  @include display(flex);
+                  @include justify-content(flex-start);
+                  @include align-items(flex-start);
+
+                  &.row {
+                    @include flex-direction(row);
+                  }
+                  &.column {
+                    @include flex-direction(column);
+                  }
+                }
+              }
+            }
+            .container.top {
+              @include display(flex);
+              @include justify-content(flex-start);
+              @include align-items(stretch);
+              @include flex-direction(row);
+
+              width: 100%;
+
+              .outer {
+                @include display(flex);
+                @include justify-content(center);
+                @include align-items(center);
+                @include flex-direction(row);
+              }
+              > dl {
+                @include flex(1);
+
+                > .row {
+                  @include align-items(flex-end);
+
+                  .row.id {
+                    @include flex(1);
+
+                    @include display(flex);
+                    @include justify-content(flex-start);
+                    @include align-items(baseline);
+                    @include flex-direction(row);
+                  }
+                  .row.fb {
+                    @include flex(2);
+
+                    @include display(flex);
+                    @include justify-content(flex-end);
+                    @include align-items(flex-start);
+                    @include flex-direction(row);
+
+                    dt {
+                      i {
+                        margin-right: 4px;
+                        font-size: 18px;
+                      }
+                    }
+                    dd {
+                      i.fa-check-circle {
+                        margin-right: 1px;
+                      }
+                    }
+                    &.linked {
+                      dt {
+                        color: #343C80;
+                      }
+                      dd {
+                        i.fa-check-circle {
+                          color: #0EB10E;
+                        }
+                      }
+                    }
+                    &.unlinked {
+                      dt, dd {
+                        color: #ccc;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          } // .detail
+        } // > .body
+      } // .card
+    }
+  }
+} // #main.users
+
+// -- + desktop + -------------
+@include media($desktop) {
+  #main.users {
+    #users {
+      padding: 20px;
+
+      .inner {
+        @include flex-wrap(wrap);
+
+        .card {
+          min-width: 200px;
+
+          &:not(:last-child) {
+            margin-right: 1%;
+          }
+          .role {
+            height: 28px;
+            padding: 4px 3%;
+            font-size: 14px;
+
+            > span {
+              @include flex(1);
+
+            }
+            .current {
+              max-width: 4em;
+              padding: 1px;
+              font-size: 12px;
+            }
+          } // .role
+          > .body {
+            padding: 20% 0;
+
+            > .icon {
+              @include to_icon($icon_size * 1.2);
+              margin-bottom: 15%;
+            }
+            .text {
+              .username {
+                font-size: 20px;
+                letter-spacing: 0.5px;
+              }
+              .email {
+                font-size: 14px;
+                line-height: 200%;
+              }
+            }
+            .detail {
+              padding: 7%;
+              font-size: 12px;
+
+              .container.top {
+                margin-bottom: 10px;
+
+                .outer {
+                  > .icon {
+                    @include to_icon($icon_size * 0.75);
+                  }
+                }
+                dl {
+                  margin-left: 16px;
+
+                  > div {
+                    &.row {
+                      margin-bottom: 6px;
+
+                      .row.id {
+                        line-height: 100%;
+
+                        dt {
+                          margin-right: 2px;
+                          font-size: 11px;
+                        }
+                        dd {
+                          font-size: 13px;
+                        }
+                      }
+                    }
+                    &.column {
+                      margin-bottom: 2px;
+                      line-height: 100%;
+
+                      dt {
+                        color: #ccc;
+                        font-size: 11px;
+                        letter-spacing: 0.5px;
+                      }
+                      dd {
+                        font-size: 12px;
+                      }
+                    }
+                  }
+                }
+              }
+              .container.bottom {
+                width: 100%;
+
+                dl {
+                  > div {
+                    line-height: 110%;
+                    margin-bottom: 4px;
+
+                    dt {
+                      color: #ccc;
+                      font-size: 11px;
+                      letter-spacing: 0.5px;
+                    }
+                    dd {
+                      font-size: 12px;
+                    }
+                    &.name {
+                      margin: 20px 0;
+                      line-height: 130%;
+
+                      &.row {
+                        @include display(flex);
+                        @include justify-content(flex-start);
+                        @include align-items(flex-start);
+                        @include flex-direction(row);
+
+                        > * {
+                          @include flex(1);
+                        }
+                      }
+                      dd {
+                        font-size: 14px;
+                      }
+                    }
+                  }
+                }
+              }
+            } // .detail
+          } // > .body
+        } // .card
+      } // .inner
+    } // #users
+  } // #main.users
+} // desktop
+
+// -- + common + -------------
+@include media($mobile) {
+  #main.users {
+
+  } // #main.users
+} // mobile
+
+
+
+// ==========================================================================
+//
 //  ++ user new ++
 //
 // ==========================================================================

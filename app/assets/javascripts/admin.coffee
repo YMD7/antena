@@ -205,7 +205,25 @@ ready = ->
 
   # ==========================================================================
   #
-  #  ++ users new ++
+  #  ++ users index ++
+  #
+  # ==========================================================================
+
+  # -- + show and hide user detail + -------------
+  $('#users .inner .card.revealed').on 'click', ->
+    showUserDetail $(this)
+
+  $('#users .inner .card .over .masthead > a').on 'click', ->
+    event.preventDefault()
+    $(this).parents('.over').fadeOut(300)
+    $(this).parents('.card').addClass('revealed')
+
+  showUserDetail = (card) ->
+    card.removeClass('revealed').find('.over').fadeIn 300
+
+  # ==========================================================================
+  #
+  #  ++ user new ++
   #
   # ==========================================================================
 
