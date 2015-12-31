@@ -209,17 +209,21 @@ ready = ->
   #
   # ==========================================================================
 
-  # -- + show and hide user detail + -------------
-  $('#users .inner .card.revealed').on 'click', ->
-    showUserDetail $(this)
+  # -- + show user detail + -------------
+  $('#users .inner .card > .body').on 'click', '> a.menu-icon.close', ->
+    toggleMenuIcon $(this)
+    showUserDetail $(this).siblings('.detail')
+  # -- + hide user detail + -------------
+  $('#users .inner .card > .body').on 'click', '> a.menu-icon.open', ->
+    toggleMenuIcon $(this)
+    hideUserDetail $(this).siblings('.detail')
 
-  $('#users .inner .card .over .masthead > a').on 'click', ->
-    event.preventDefault()
-    $(this).parents('.over').fadeOut(300)
-    $(this).parents('.card').addClass('revealed')
-
-  showUserDetail = (card) ->
-    card.removeClass('revealed').find('.over').fadeIn 300
+  toggleMenuIcon = (menuIcon) ->
+    menuIcon.toggleClass('close').toggleClass('open').find('i').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up')    
+  showUserDetail = (target) ->
+    target.show().animate({opacity: 1; top: 0;}, 500, 'easeOutBounce')
+  hideUserDetail = (target) ->
+    target.show().animate({opacity: 0; top: '-101%';}, 600, 'easeInOutQuint')
 
   # ==========================================================================
   #

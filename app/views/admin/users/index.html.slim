@@ -13,12 +13,14 @@ section#main.users
     #users
       .inner
         - @users.each do |u|
-          .card.revealed
+          .card
             = content_tag :div, :class => "role #{u.role}" do
               span = @role
               - if u == @admin_user
                 span.current YOU
             .body
+              a.menu-icon.close
+                = fa_icon "chevron-down"
               .icon style="background-image:url('/assets/user_icons/#{@icon_filename}.jpg');"
               .text
                 span.username = u.username
