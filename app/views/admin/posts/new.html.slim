@@ -13,18 +13,18 @@ section#main.posts-new
     #draft_contents
       .row
         ul
-          li.single
+          li.single.current
             | 独り言
-          li.talk.current
+          li.talk
             | 対談
-        .inner.single.hidden
+        .inner.single
           = form_for @post do |f|
             - @post.user_id = @current_user_id
             = hidden_field :post, :user_id
             .comment
-              .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+              .icon style="background-image:url('/assets/user_icons/#{@admin_user.id}.jpg');"
               .sentence
-                = f.text_area :comment, :value => "single"
+                = f.text_area :comment, :value => "ここにテキスト"
               .seed
                 span
                   span - 創造のタネ -
@@ -41,7 +41,7 @@ section#main.posts-new
                   span hogehogehogehogeho
               span
                 | (c) image.example.com
-        .inner.talk
+        .inner.talk.hidden
           = form_for @post do |f|
             - @post.user_id = @current_user_id
             = hidden_field :post, :user_id
