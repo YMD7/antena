@@ -49,6 +49,10 @@ ready = ->
     target.siblings('.inner').addClass('hidden')
     target.removeClass('hidden')
 
+  # -- + autosize textareas + -------------
+  # http://www.jacklmoore.com/autosize/
+  autosize($('#main.posts-new #contents_field textarea'))
+
   # -- + image src tab UI + -------------
   $('.sticker').each ->
     $(this).children('.form-parts').first().addClass('is-open').show()
@@ -109,9 +113,12 @@ ready = ->
       errorEffect textBox
 
   # -- + image src setter + -------------
-  $('form').on 'focusout', '#post_image_src', ->
-    event.preventDefault()
-    setImageSrcQuote($(this))
+  $('form').on 'focus', '#post_image_src', ->
+    $(this).select()
+
+  # $('form').on 'focusout', '#post_image_src', ->
+  #   event.preventDefault()
+  #   setImageSrcQuote($(this))
   
   setImageSrcQuote = (e) ->
     url = e.val()
