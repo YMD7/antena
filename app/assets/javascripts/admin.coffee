@@ -152,8 +152,8 @@ ready = ->
       errorEffect target
 
   # -- + talk title setter + -------------
-  $('#draft_contents .inner.talk .talk-title .comment .sentence textarea').on 'focusout', ->
-    $('#draft_contents .row .inner.talk .talk-body #title h1').text($(this).text())
+  $('#talk_title').on 'focusout', ->
+    $('.inner.talk .talk-body #title h1').text($(this).text())
 
   # -- + insert talk elements + -------------
   $('#body .insert-element button').on 'click', ->

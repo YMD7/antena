@@ -24,7 +24,7 @@ section#main.posts-new
             .comment
               .icon style="background-image:url('/assets/user_icons/#{@current_user_id}.jpg');"
               .sentence
-                = f.text_area :comment, :value => "ここにテキスト"
+                = f.text_area :comment, :value => "ここにテキスト", :id => "single_title"
               .seed
                 span
                   span - 参考 -
@@ -52,7 +52,7 @@ section#main.posts-new
                   = render 'svgs/xcross'
                   .icon style="background-image:url('/assets/user_icons/no_icon.jpg');"
                 .sentence
-                  = f.text_area :comment, :value => "タイトルを入力"
+                  = f.text_area :comment, :value => "タイトルを入力", :id => "talk_title"
               .image
                 = image_tag 'placeholder-image.png'
                 .sticker
