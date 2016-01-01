@@ -155,6 +155,10 @@ ready = ->
   $('#talk_title').on 'focusout', ->
     $('.inner.talk .talk-body #title h1').text($(this).text())
 
+  # -- + cansel if press enter + -------------
+  $('.talk-body > #body .talk-body-header').keypress (e) ->
+    if e.which is 13 then return false
+
   # -- + insert talk elements + -------------
   $('#body .insert-element button').on 'click', ->
     event.preventDefault()
@@ -168,7 +172,7 @@ ready = ->
 
   insertSpeakElement = (btn) ->
     container = btn.parent().prev()
-    lastPerson = container.find('div:last-child').attr('class')
+    lastPerson = container.find('div').last().attr('class')
     targetPerson = if lastPerson is 'first-person' then 'second-person' else 'first-person'
     el = container.find(".#{targetPerson}").first().clone()
     el.find('textarea').text('テキストを入力')
