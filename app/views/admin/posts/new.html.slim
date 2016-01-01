@@ -27,9 +27,9 @@ section#main.posts-new
                 = f.text_area :comment, :value => "ここにテキスト"
               .seed
                 span
-                  span - 創造のタネ -
+                  span - 参考 -
                   br
-                  = f.text_field :seed_title, :value => "URLを入力"
+                  = f.text_field :seed_title, :value => "https://www.google.co.jp/"
                   = link_to '設定', '#', :id => 'seed_url', :class => 'btn unset'
             .image
               = image_tag 'placeholder-image.png'
@@ -100,7 +100,5 @@ section#main.posts-new
           ul
             li
               a
-                - 30.times do
-                  = image_tag 'antena-kun.png'
-                = fa_icon "rocket"
-                | 投稿
+                = fa_icon "hand-o-right"
+                | 確認する

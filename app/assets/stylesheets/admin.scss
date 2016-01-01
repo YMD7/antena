@@ -888,7 +888,7 @@ header {
               line-height: 22px;
 
               span {
-                font-size: 13px;
+                font-size: 12px;
               }
               input[type="text"] {
                 margin-right: 14px;
@@ -1162,111 +1162,6 @@ header {
                 
                 @include transition(all 0.1s linear);
                 @include transform(rotate(5deg));
-              }
-              &:active {
-                // antenakun launch animation
-                @keyframes publish_post_a {
-                  0%   { top: 6px; left: 0; opacity: 1.0; }
-                  100% { top: 160px; left: -220px; opacity: 0.1; }
-                }
-                @keyframes publish_post_b {
-                  0%   { top: 6px; left: 0; opacity: 1.0; }
-                  100% { top: 260px; left: -190px; opacity: 0.1; }
-                }
-                @keyframes publish_post_c {
-                  0%   { top: 6px; left: 0; opacity: 1.0; }
-                  100% { top: 280px; left: -80px; opacity: 0.1; }
-                }
-                img:nth-child(1) {
-                  @include animation(publish_post_a 0.30s $ease-out-expo);
-                }
-                img:nth-child(2) {
-                  @include animation(publish_post_a 0.31s $ease-out-quint);
-                }
-                img:nth-child(3) {
-                  @include animation(publish_post_a 0.32s $ease-in-out-cubic);
-                }
-                img:nth-child(4) {
-                  @include animation(publish_post_a 0.33s $ease-in-quart);
-                }
-                img:nth-child(5) {
-                  @include animation(publish_post_a 0.34s $ease-out-quad);
-                }
-                img:nth-child(6) {
-                  @include animation(publish_post_a 0.35s $ease-in-sine);
-                }
-                img:nth-child(7) {
-                  @include animation(publish_post_a 0.36s $ease-in-circ);
-                }
-                img:nth-child(8) {
-                  @include animation(publish_post_a 0.37s $ease-in-cubic);
-                }
-                img:nth-child(9) {
-                  @include animation(publish_post_a 0.38s $ease-out-quad);
-                }
-                img:nth-child(10) {
-                  @include animation(publish_post_a 0.39s $ease-out-quint);
-                }
-                img:nth-child(11) {
-                  @include animation(publish_post_b 0.30s $ease-out-expo);
-                }
-                img:nth-child(12) {
-                  @include animation(publish_post_b 0.31s $ease-out-quint);
-                }
-                img:nth-child(13) {
-                  @include animation(publish_post_b 0.32s $ease-in-out-cubic);
-                }
-                img:nth-child(14) {
-                  @include animation(publish_post_b 0.33s $ease-in-quart);
-                }
-                img:nth-child(15) {
-                  @include animation(publish_post_b 0.34s $ease-out-quad);
-                }
-                img:nth-child(16) {
-                  @include animation(publish_post_b 0.35s $ease-in-sine);
-                }
-                img:nth-child(17) {
-                  @include animation(publish_post_b 0.36s $ease-in-circ);
-                }
-                img:nth-child(18) {
-                  @include animation(publish_post_b 0.37s $ease-in-cubic);
-                }
-                img:nth-child(19) {
-                  @include animation(publish_post_b 0.38s $ease-out-quad);
-                }
-                img:nth-child(20) {
-                  @include animation(publish_post_b 0.39s $ease-out-quint);
-                }
-                img:nth-child(21) {
-                  @include animation(publish_post_c 0.30s $ease-out-expo);
-                }
-                img:nth-child(22) {
-                  @include animation(publish_post_c 0.31s $ease-out-quint);
-                }
-                img:nth-child(23) {
-                  @include animation(publish_post_c 0.32s $ease-in-out-cubic);
-                }
-                img:nth-child(24) {
-                  @include animation(publish_post_c 0.33s $ease-in-quart);
-                }
-                img:nth-child(25) {
-                  @include animation(publish_post_c 0.34s $ease-out-quad);
-                }
-                img:nth-child(26) {
-                  @include animation(publish_post_c 0.35s $ease-in-sine);
-                }
-                img:nth-child(27) {
-                  @include animation(publish_post_c 0.36s $ease-in-circ);
-                }
-                img:nth-child(28) {
-                  @include animation(publish_post_c 0.37s $ease-in-cubic);
-                }
-                img:nth-child(29) {
-                  @include animation(publish_post_c 0.38s $ease-out-quad);
-                }
-                img:nth-child(30) {
-                  @include animation(publish_post_c 0.39s $ease-out-quint);
-                }
               }
             }
           }
