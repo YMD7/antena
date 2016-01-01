@@ -13,16 +13,16 @@ section#main.posts-new
     #draft_contents
       .row
         ul
-          li.single.current
+          li.single
             | 独り言
-          li.talk
+          li.talk.current
             | 対談
-        .inner.single
+        .inner.single.hidden
           = form_for @post do |f|
             - @post.user_id = @current_user_id
             = hidden_field :post, :user_id
             .comment
-              .icon style="background-image:url('/assets/user_icons/#{@admin_user.id}.jpg');"
+              .icon style="background-image:url('/assets/user_icons/#{@current_user_id}.jpg');"
               .sentence
                 = f.text_area :comment, :value => "ここにテキスト"
               .seed
@@ -40,7 +40,7 @@ section#main.posts-new
                   span hogehogehogehogeho
               span
                 | (c) image.example.com
-        .inner.talk.hidden
+        .inner.talk
           = form_for @post do |f|
             - @post.user_id = @current_user_id
             = hidden_field :post, :user_id
@@ -48,9 +48,9 @@ section#main.posts-new
               .comment
                 span 対談
                 .icons
-                  .icon style='background-image:url("/assets/user_icons/ozaki.jpg");'
+                  .icon style="background-image:url('/assets/user_icons/#{@current_user_id}.jpg');"
                   = render 'svgs/xcross'
-                  .icon style='background-image:url("/assets/user_icons/yamada.jpg");'
+                  .icon style="background-image:url('/assets/user_icons/no_icon.jpg');"
                 .sentence
                   = f.text_area :comment, :value => "タイトルを入力"
               .image
@@ -68,9 +68,9 @@ section#main.posts-new
                 .bg
                 .container
                   .icons
-                    = image_tag 'user_icons/ozaki'
+                    = image_tag "user_icons/#{@current_user_id}"
                     = render 'svgs/xcross'
-                    = image_tag 'user_icons/yamada'
+                    = image_tag "user_icons/no_icon"
                   .text
                     h1
                       | タイトル
@@ -81,11 +81,11 @@ section#main.posts-new
                 .container
                   input type="text" value='見出しを入力'
                   .first-person
-                    = image_tag 'user_icons/ozaki'
+                    = image_tag "user_icons/#{@current_user_id}"
                     textarea
                       | テキストを入力
                   .second-person
-                    = image_tag 'user_icons/yamada'
+                    = image_tag "user_icons/no_icon"
                     textarea
                       | テキストを入力
                 .insert-element
