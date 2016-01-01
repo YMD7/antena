@@ -68,6 +68,10 @@ ready = ->
     form = $(this).parent('form')
     form.submit()
 
+  # -- + seed url form selecter + -------------
+  $('form').on 'focus', 'input#post_seed_title', ->
+    $(this).select()
+
   # -- + seed url setter + -------------
   $('form').on 'click', '#seed_url.btn.unset', ->
     event.preventDefault()
