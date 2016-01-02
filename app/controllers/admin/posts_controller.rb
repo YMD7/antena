@@ -7,6 +7,7 @@ class Admin::PostsController < AdminController
   def new
     @post = Post.new
     @current_user_id = current_user.nil? ? nil : current_user.id
+    @users = User.all
   end
 
   def create

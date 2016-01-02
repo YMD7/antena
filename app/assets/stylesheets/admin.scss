@@ -609,6 +609,7 @@ header {
           @include justify-content(center);
 
           @include to_icon($icon_size);
+          position: relative;
           margin: 0 auto;
         }
         .sentence {
@@ -837,10 +838,12 @@ header {
         padding: 30px;
 
         .comment {
+          position: relative;
+
           .icons {
             > .icon {
               display: table;
-              
+
               &:hover {
                 cursor: pointer;
 
@@ -848,16 +851,110 @@ header {
                   display: table-cell;
                   background: rgba(5,20,60,0.7);
                   @include to_icon($icon_size);
-                  padding-bottom: 4px;
-                  content: '+';
+                  padding-bottom: 2px;
+                  content: '\f0ad';
                   color: rgba(155,170,250,1);
-                  font-size: 50px;
+                  font-family: 'FontAwesome';
+                  font-size: 40px;
                   text-align: center;
                   vertical-align: middle;
+                  box-shadow: 0 0 1px 0 rgba(5,20,60,0.7) inset;
                 }
               }
             }
-          }
+          } // .icons
+          #user_search {
+            @include display(flex);
+            @include justify-content(flex-end);
+            @include align-items(center);
+            @include flex-direction(column);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+
+            .container {
+              @include display(flex);
+              @include justify-content(flex-start);
+              @include align-items(flex-start);
+              @include flex-direction(column);
+
+              background: rgba(0,0,0,0.9);
+              width: 85%;
+              height: 55%;
+              padding: 0 10px 10px;
+
+              .tools {
+                @include display(flex);
+                @include justify-content(center);
+                @include align-items(center);
+                @include flex-direction(row);
+
+                width: 100%;
+                margin: 10px 0;
+                
+                .search-box {
+                  @include flex(1);
+
+                  @include display(flex);
+                  @include justify-content(center);
+                  @include align-items(center);
+                  @include flex-direction(row);
+
+                  input {
+                    border: 1px solid #ddd;
+                    background-color: transparent;
+                    width: 50%;
+                    max-width: 220px;
+                    margin-right: 8px;
+                    padding: 4px 6px;
+                    color: #888;
+                    font-size: 13px;
+
+                    &:focus {
+                      border: 1px solid #00c0ef;
+                      background-color: #111;
+                    }
+                  }
+                  a {
+                    color: #9baafa;
+                    font-size: 16px;
+                  }
+                }
+                .close-icon {
+                  a {
+                    color: #FF5959;
+                    font-size: 22px;
+                  }
+                }
+              }
+              .results {
+                overflow: scroll;
+                background-color: rgba(21,21,21,0.8);
+                width: 100%;
+                height: 80%;
+                box-shadow: 0 0 1px rgba(30,30,30,1) inset;
+
+                ul {
+                  @include display(flex);
+                  @include justify-content(center);
+                  @include align-items(flex-start);
+                  @include flex-direction(row);
+                  @include flex-wrap(wrap);
+
+                  li {
+                    margin: 10px;
+                    img {
+                      @include to_icon(50px);
+                    }
+                  }
+                }
+              }
+            }
+          } // #user_search
           .sentence {
             @include flex(1);
 
