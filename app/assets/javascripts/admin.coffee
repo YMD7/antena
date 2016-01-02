@@ -155,10 +155,50 @@ ready = ->
   #                     + talk +
   # --------------------------------
 
-  # -- + user search + -------------
-  $('#user_search .search-box a').on 'click', ->
-    console.log true
+  # -- + user searching + -------------
+  USER_SEARCH_WORDS = $('#user_search .search-box').find('input').val()
+  $('#user_search .search-box').on 'keyup', 'input', ->
+    key = $(this).val().toLowerCase()
+    if USER_SEARCH_WORDS isnt key
+      USER_SEARCH_WORDS = $(this).val()
+      ids = getUserIdsByKey key
+      lists  = $('#user_search .results ul li')
+      displaySearchResult ids, lists
 
+  getUserIdsByKey = (key) ->
+    ids = []
+    $('#user_search .results ul li').each (i) ->
+      img = $(this).children('img')
+      id  = img.attr('user_id')
+      for num in id.split('')
+        if ///#{key}///.exec num then ids.push id; return true;
+      for term in img.attr('title').split(' ')
+        if ///#{key}///.exec term.toLowerCase() then ids.push id; return true;
+      for term in img.attr('user_name_jp').split(' ')
+        if ///#{key}///.exec term.toLowerCase() then ids.push id; return true;
+      for term in img.attr('user_name_en').split(' ')
+        if ///#{key}///.exec term.toLowerCase() then ids.push id; return true;
+    return ids
+
+  displaySearchResult = (ids, lists) ->
+    lists.each ->
+      if ids.indexOf($(this).children('img').attr('user_id')) is -1
+        $(this).fadeOut 100
+      else
+        $(this).show()
+
+  # -- + push search icon away + -------------
+  $('#user_search .search-box').on 'focus', 'input', ->
+    $(this).css({"background-position": "-20px center";})
+  $('#user_search .search-box').on 'focusout', 'input', ->
+    moveSearchIcon $(this)
+
+  moveSearchIcon = (e) ->
+    if e.val().length is 0
+      e.css({"background-position": "4px center";})
+    else
+      e.css({"background-position": "-20px center";})
+  
   # -- + talk title setter + -------------
   $('#talk_title').on 'focusout', ->
     $('.inner.talk .talk-body #title h1').text($(this).text())

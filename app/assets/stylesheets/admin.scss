@@ -889,7 +889,7 @@ header {
 
               .tools {
                 @include display(flex);
-                @include justify-content(center);
+                @include justify-content(flex-start);
                 @include align-items(center);
                 @include flex-direction(row);
 
@@ -899,20 +899,17 @@ header {
                 .search-box {
                   @include flex(1);
 
-                  @include display(flex);
-                  @include justify-content(center);
-                  @include align-items(center);
-                  @include flex-direction(row);
-
                   input {
                     border-top: 1px solid transparent;
                     border-right: 1px solid transparent;
-                    border-bottom: 1px solid #777;
+                    border-bottom: 1px solid transparent;
                     border-left: 1px solid transparent;
-                    background: image-url("search_icon.svg") 4px center no-repeat transparent;
+                    background-image: image-url("search_icon.svg");
                     background-size: 14px;
-                    width: 50%;
-                    max-width: 220px;
+                    background-position: 4px center;
+                    background-repeat: no-repeat;
+                    background-color: rgba(21,21,21,0.8);
+                    width: 60%;
                     padding: 4px 6px;
                     color: #888;
                     font-size: 13px;

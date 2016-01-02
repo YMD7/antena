@@ -62,9 +62,8 @@ section#main.posts-new
                     .results
                       ul
                         - @users.each do |u|
-                          - 10.times do
-                            li
-                              = image_tag "user_icons/#{u.id}.jpg", :alt => u.username, :title => u.username, :user_id => u.id, :user_name_jp => "#{u.family_name_jp} #{u.first_name_jp}", :user_name_en => "#{u.first_name_en} #{u.family_name_en}"
+                          li
+                            = image_tag "user_icons/#{u.id}.jpg", :alt => u.username, :title => u.username, :user_id => u.id, :user_name_jp => "#{u.family_name_jp} #{u.first_name_jp}", :user_name_en => "#{u.first_name_en} #{u.family_name_en}"
                 .sentence
                   = f.text_area :comment, :value => "タイトルを入力", :id => "talk_title"
               .image
