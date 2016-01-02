@@ -905,23 +905,24 @@ header {
                   @include flex-direction(row);
 
                   input {
-                    border: 1px solid #ddd;
-                    background-color: transparent;
+                    border-top: 1px solid transparent;
+                    border-right: 1px solid transparent;
+                    border-bottom: 1px solid #777;
+                    border-left: 1px solid transparent;
+                    background: image-url("search_icon.svg") 4px center no-repeat transparent;
+                    background-size: 14px;
                     width: 50%;
                     max-width: 220px;
-                    margin-right: 8px;
                     padding: 4px 6px;
                     color: #888;
                     font-size: 13px;
+                    @include transition(all 0.2s linear);
 
                     &:focus {
                       border: 1px solid #00c0ef;
                       background-color: #111;
+                      background-position: -20px center;
                     }
-                  }
-                  a {
-                    color: #9baafa;
-                    font-size: 16px;
                   }
                 }
                 .close-icon {

@@ -151,6 +151,14 @@ ready = ->
       target = e.parent('.form-parts')
       errorEffect target
 
+  # --------------------------------
+  #                     + talk +
+  # --------------------------------
+
+  # -- + user search + -------------
+  $('#user_search .search-box a').on 'click', ->
+    console.log true
+
   # -- + talk title setter + -------------
   $('#talk_title').on 'focusout', ->
     $('.inner.talk .talk-body #title h1').text($(this).text())
