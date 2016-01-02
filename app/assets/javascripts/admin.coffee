@@ -155,6 +155,16 @@ ready = ->
   #                     + talk +
   # --------------------------------
 
+  # -- + toggle user search box + -------------
+  $('#draft_contents .inner.talk .talk-title .icons').on 'click', '.icon', ->
+    index = $(this).parents('.icons').children('.icon').index(this)
+    $('#user_search').removeClass('hidden').fadeTo(400, 1).addClass("#{index}")
+  $('#user_search > div > div.tools > div.close-icon > a > i').on 'click', ->
+    $('#user_search').fadeTo(400, 0).attr(class: '')
+    setTimeout ->
+      $('#user_search').addClass('hidden')
+    , 400
+
   # -- + user searching + -------------
   USER_SEARCH_WORDS = $('#user_search .search-box').find('input').val()
   $('#user_search .search-box').on 'keyup', 'input', ->
