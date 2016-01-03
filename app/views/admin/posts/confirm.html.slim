@@ -1,0 +1,96 @@
+section#main.posts-confirm
+  == render 'admin/contents_nav'
+  section#contents_field
+    h2
+      span.anc 投稿 > 
+      span.anc 新規作成 >
+      span.current 確認画面
+    .local-menu
+      ul
+        li
+          a
+            = fa_icon "tag"
+            | タグ
+    #draft_contents
+      .row
+        p = @view_data
+        span = @view_data[:type]
+        .inner.single
+          .comment
+            .icon style="background-image:url('/assets/user_icons/#{@current_user.id}.jpg');"
+            .sentence
+              p
+                = @view_data[:comment]
+            .seed
+              span
+                span - 参考 -
+                br
+                = text_field_tag :ref_url, :value => "https://www.google.co.jp/"
+          .image
+            = image_tag 'placeholder-image.png'
+            .sticker
+              = link_to 'upload', '#', :class => 'tab upload'
+              .form-parts.link
+                = text_field_tag :image_src_url, :value => 'URLを入力'
+              .form-parts.upload
+                span hogehogehogehogeho
+            span
+              | (c) image.example.com
+        .inner.talk.hidden
+          .talk-title
+            .comment
+              span 対談
+              .icons
+                .icon style="background-image:url('/assets/user_icons/#{@current_user.id}.jpg');"
+                = render 'svgs/xcross'
+                .icon style="background-image:url('/assets/user_icons/no_icon.jpg');"
+              .sentence
+                = text_area_tag :title, :value => "タイトルを入力"
+            .image
+              = image_tag 'placeholder-image.png'
+              .sticker
+                = link_to 'upload', '#', :class => 'tab upload'
+                .form-parts.link
+                  = text_field_tag :image_src_url, :value => 'URLを入力'
+                .form-parts.upload
+                  span hogehogehogehogeho
+              span
+                | (c) image.example.com
+          .talk-body
+            #title
+              .bg
+              .container
+                .icons
+                  = image_tag "user_icons/#{@current_user.id}"
+                  = render 'svgs/xcross'
+                  = image_tag "user_icons/no_icon"
+                .text
+                  h1
+                    | タイトル
+            #summary
+              = text_area_tag :summary, :value => "対談の概要を入力"
+            #body
+              hidden_field_tag :body
+              .container
+                input type="text" value='見出しを入力' class="talk-body-header"
+                .first-person
+                  = image_tag "user_icons/#{@current_user.id}"
+                  textarea
+                    | テキストを入力
+                .second-person
+                  = image_tag "user_icons/no_icon"
+                  textarea
+                    | テキストを入力
+              .insert-element
+                button.speak
+                  = fa_icon "plus"
+                  | 発言を追加
+                button.header
+                  = fa_icon "plus"
+                  | 見出しを追加
+        .bottom-menu
+          ul
+            li
+              a.confirm
+                = fa_icon "hand-o-right"
+                | 確認する

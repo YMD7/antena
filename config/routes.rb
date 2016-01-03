@@ -6,18 +6,18 @@ Rails.application.routes.draw do
   # -- static pages --
   get 'gate',  :to => 'static_pages#gate'
 
+  # -- resources --
+  resources :posts
+  get  'users', to: 'users#new', as: :new_user
+  post 'users', to: 'admin/users#create'
+
   # -- admin --
   get 'admin', :to => 'admin/posts#index'
   namespace :admin do
+    post 'posts/confirm', to: 'posts#confirm'
     resources :posts
     resources :users
   end
-
-  # -- resources --
-  resources :posts
-  # resources :users
-  get  'users', to: 'users#new', as: :new_user
-  post 'users', to: 'admin/users#create'
 
   # -- devise --
   devise_for :users, controllers: {

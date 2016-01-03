@@ -23,4 +23,10 @@ class Admin::PostsController < AdminController
     flash.notice = post
     redirect_to new_post_path
   end
+
+  def confirm
+    type = params[:post][:type]
+    @view_data = params[:post]["#{type}_post"]
+    @view_data[:type] = type
+  end
 end

@@ -13,14 +13,14 @@ section#main.posts-new
     #draft_contents
       .row
         ul
-          li.single
+          li.single.current
             | 独り言
-          li.talk.current
+          li.talk
             | 対談
-        = form_for @post do |f|
+        = form_for @post, :url => {:action => 'confirm'} do |f|
           = f.hidden_field :author_id, :value => @current_user.id
           = f.hidden_field :type, :value => 'single'
-          .inner.single.hidden
+          .inner.single
             = f.fields_for :single_post do |s|
               .comment
                 .icon style="background-image:url('/assets/user_icons/#{@current_user.id}.jpg');"
@@ -41,7 +41,7 @@ section#main.posts-new
                     span hogehogehogehogeho
                 span
                   | (c) image.example.com
-          .inner.talk
+          .inner.talk.hidden
             = f.fields_for :talk_post do |t|
               = t.hidden_field :first_persion_id, :value => @current_user.id
               = t.hidden_field :second_persion_id, :value => nil
@@ -112,6 +112,6 @@ section#main.posts-new
           .bottom-menu
             ul
               li
-                a
+                a.confirm
                   = fa_icon "hand-o-right"
                   | 確認する

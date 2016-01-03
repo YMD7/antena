@@ -67,10 +67,9 @@ ready = ->
     $(this).text(hide)
   
   # -- + form submitter + -------------
-  $('#new_post > i').on 'click', ->
+  $('#new_post > div.bottom-menu > ul > li').on 'click', 'a.confirm', ->
     event.preventDefault()
-    form = $(this).parent('form')
-    form.submit()
+    $('#new_post').submit()
 
   # -- + seed url form selecter + -------------
   $('form').on 'focus', 'input#post_seed_title', ->
