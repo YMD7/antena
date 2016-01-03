@@ -19,7 +19,7 @@ section#main.posts-new
             | 対談
         = form_for @post do |f|
           = f.hidden_field :author_id, :value => @current_user.id
-          = f.hidden_field :post_type, :value => 'single'
+          = f.hidden_field :type, :value => 'single'
           .inner.single.hidden
             = f.fields_for :single_post do |s|
               .comment
