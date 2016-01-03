@@ -11,17 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220162956) do
+ActiveRecord::Schema.define(version: 20160103050940) do
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "comment"
-    t.string   "seed_title"
-    t.string   "seed_url"
-    t.integer  "image_id"
-    t.string   "image_src"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "author_id"
+    t.string   "post_type"
+  end
+
+  create_table "single_posts", force: :cascade do |t|
+    t.integer  "post_id"
+    t.string   "comment"
+    t.string   "ref_title"
+    t.string   "ref_url"
+    t.string   "image_name"
+    t.string   "image_src_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "talk_posts", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "first_person_id"
+    t.integer  "second_person_id"
+    t.string   "title"
+    t.string   "image_name"
+    t.string   "image_src_url"
+    t.text     "summary"
+    t.text     "body"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|
