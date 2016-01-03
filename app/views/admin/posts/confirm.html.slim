@@ -14,7 +14,7 @@ section#main.posts-confirm
     #draft_contents
       .row
         p = @view_data
-        span = @view_data[:type]
+        span = @view_data[:post_type]
         .inner.single
           .comment
             .icon style="background-image:url('/assets/user_icons/#{@current_user.id}.jpg');"
