@@ -19,7 +19,7 @@ section#main.posts-new
             | 対談
         = form_for @post, :url => {:action => 'confirm'} do |f|
           = f.hidden_field :author_id, :value => @current_user.id
-          = f.hidden_field :type, :value => 'single'
+          = f.hidden_field :post_type, :value => 'single'
           .inner.single
             = f.fields_for :single_post do |s|
               .comment
@@ -30,13 +30,13 @@ section#main.posts-new
                   span
                     span - 参考 -
                     br
-                    = s.text_field :ref_url, :value => "https://www.google.co.jp/"
+                    = s.text_field :ref_url, :value => "http://www.yahoo.co.jp/"
               .image
                 = image_tag 'placeholder-image.png'
                 .sticker
                   = link_to 'upload', '#', :class => 'tab upload'
                   .form-parts.link
-                    = s.text_field :image_src_url, :value => 'URLを入力'
+                    = s.text_field :image_src_url, :value => 'https://d13yacurqjgara.cloudfront.net/users/63407/screenshots/2433451/dribbble_sadhu_1x.png'
                   .form-parts.upload
                     span hogehogehogehogeho
                 span

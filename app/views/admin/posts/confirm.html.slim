@@ -25,17 +25,12 @@ section#main.posts-confirm
               span
                 span - 参考 -
                 br
-                = text_field_tag :ref_url, :value => "https://www.google.co.jp/"
+                = text_field_tag :ref_url, @view_data[:ref_title]
           .image
-            = image_tag 'placeholder-image.png'
-            .sticker
-              = link_to 'upload', '#', :class => 'tab upload'
-              .form-parts.link
-                = text_field_tag :image_src_url, :value => 'URLを入力'
-              .form-parts.upload
-                span hogehogehogehogeho
+            = image_tag "posts/confirm/#{@tmp_image_path}"
             span
-              | (c) image.example.com
+              | (c) 
+              = link_to @view_data[:image_src_domain], @view_data[:image_src_url]
         .inner.talk.hidden
           .talk-title
             .comment
