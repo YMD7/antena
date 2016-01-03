@@ -210,7 +210,7 @@ ready = ->
       e.css({"background-position": "-20px center";})
   
   # -- + talk title setter + -------------
-  $('#talk_title').on 'focusout', ->
+  $('#post_talk_post_title').on 'focusout', ->
     $('.inner.talk .talk-body #title h1').text($(this).text())
 
   # -- + cansel if press enter + -------------
